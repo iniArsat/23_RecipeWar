@@ -1,0 +1,111 @@
+[gd_scene load_steps=10 format=3 uid="uid://dvcxjo0exr078"]
+
+[ext_resource type="Script" uid="uid://y1maqoqf8nlh" path="res://script/tower/tower_panel.gd" id="1_1i1gy"]
+[ext_resource type="Texture2D" uid="uid://d1ig5rmkg7xln" path="res://asset/Stove_Cannon.png" id="2_1i1gy"]
+[ext_resource type="PackedScene" uid="uid://c6v33erbstmg6" path="res://scene/tower_stove_cannon.tscn" id="2_pysmt"]
+[ext_resource type="PackedScene" uid="uid://d2i5gjafy7xtx" path="res://scene/tower_chilli.tscn" id="3_ilhh2"]
+[ext_resource type="PackedScene" uid="uid://uewpaduoydcs" path="res://scene/tower_ice.tscn" id="4_ae8ie"]
+[ext_resource type="PackedScene" uid="uid://dth544jd51mm8" path="res://scene/tower_garlic.tscn" id="5_6aia2"]
+[ext_resource type="Texture2D" uid="uid://c85nfx42kstn4" path="res://asset/can_upgrade.png" id="7_ae8ie"]
+[ext_resource type="Texture2D" uid="uid://b4lomwvqhr4e0" path="res://asset/coin_cost.png" id="8_6aia2"]
+[ext_resource type="Texture2D" uid="uid://mx4ni6e1pkp1" path="res://asset/Spice_Cannon_Hover (1).png" id="9_6igyj"]
+
+[node name="TowerPanel" type="Panel" groups=["tower_panel"]]
+custom_minimum_size = Vector2(78, 74)
+offset_right = 78.0
+offset_bottom = 74.0
+script = ExtResource("1_1i1gy")
+stove_cannon_scene = ExtResource("2_pysmt")
+chilli_launcher_scene = ExtResource("3_ilhh2")
+ice_chiller_scene = ExtResource("4_ae8ie")
+garlic_barrier_scene = ExtResource("5_6aia2")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(39, 37)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_1i1gy")
+
+[node name="TidakCukup" type="Label" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 13.0
+offset_top = 20.0
+offset_right = 98.0
+offset_bottom = 69.0
+scale = Vector2(0.685, 0.685)
+text = "Koin Tidak 
+Cukup"
+horizontal_alignment = 1
+
+[node name="CanUpgrade" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(13.000001, 11.999996)
+scale = Vector2(0.015, 0.015)
+texture = ExtResource("7_ae8ie")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 46.0
+offset_top = -1.0
+offset_right = 86.0
+offset_bottom = 74.0
+scale = Vector2(0.68, 0.68)
+text = "20
+"
+horizontal_alignment = 1
+
+[node name="CoinCost" type="Sprite2D" parent="."]
+position = Vector2(71, 7.0000005)
+scale = Vector2(0.075, 0.075)
+texture = ExtResource("8_6aia2")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_top = 61.0
+offset_right = 78.0
+offset_bottom = 74.0
+
+[node name="Label" type="Label" parent="ColorRect"]
+layout_mode = 0
+offset_left = 13.0
+offset_right = 67.0
+offset_bottom = 23.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 8
+text = "Stove Cannon"
+
+[node name="Popup" type="Panel" parent="."]
+visible = false
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_top = -48.0
+offset_right = 100.0
+offset_bottom = -8.0
+
+[node name="ColorRect" type="ColorRect" parent="Popup"]
+visible = false
+layout_mode = 0
+offset_left = -8.0
+offset_top = 9.0
+offset_right = 92.0
+offset_bottom = 34.0
+
+[node name="PopupLabel" type="Label" parent="Popup"]
+visible = false
+layout_mode = 0
+offset_left = -4.0
+offset_top = 10.0
+offset_right = 36.0
+offset_bottom = 33.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 10
+text = "aaaaaaaaaa"
+
+[node name="Sprite2D" type="Sprite2D" parent="Popup"]
+position = Vector2(40, -5)
+scale = Vector2(0.34, 0.34)
+texture = ExtResource("9_6igyj")
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

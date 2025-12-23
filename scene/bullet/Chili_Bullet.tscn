@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://805pbpmm4hdd"]
+
+[ext_resource type="Script" uid="uid://cobdes6u6k4mg" path="res://script/bullet/Chili_Bullet.gd" id="1_6t6ns"]
+[ext_resource type="Texture2D" uid="uid://cxwqxkdbmp0w8" path="res://asset/towerDefense_tile251.png" id="2_2afnd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2b2rl"]
+size = Vector2(71.1111, 17.7778)
+
+[node name="Bullet" type="Area2D" groups=["bullet"]]
+script = ExtResource("1_6t6ns")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 0, 0, 1)
+rotation = 1.5708
+scale = Vector2(0.225, 0.225)
+texture = ExtResource("2_2afnd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2.38419e-07, 5.96046e-08)
+scale = Vector2(0.225, 0.225)
+shape = SubResource("RectangleShape2D_2b2rl")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

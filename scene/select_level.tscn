@@ -1,0 +1,1248 @@
+[gd_scene load_steps=31 format=3 uid="uid://dfuhc7hw0sqwj"]
+
+[ext_resource type="Script" uid="uid://dxw7sb23wfc56" path="res://script/ui/select_level.gd" id="1_62unk"]
+[ext_resource type="Texture2D" uid="uid://d154gfxyg3qxa" path="res://asset/stage.jpeg" id="1_hpupe"]
+[ext_resource type="Texture2D" uid="uid://bfon5cjykq31n" path="res://asset/select_level.jpg" id="3_7a70o"]
+[ext_resource type="Texture2D" uid="uid://dm2w3ytwnrg4m" path="res://asset/select_level.png" id="3_jsi6v"]
+[ext_resource type="Texture2D" uid="uid://boe7kmquewprd" path="res://asset/Unlocked.png" id="4_88rkn"]
+[ext_resource type="Texture2D" uid="uid://7krk64a15ku2" path="res://asset/Locked.png" id="5_q7x5q"]
+[ext_resource type="Texture2D" uid="uid://dl62jx08854ea" path="res://asset/store_ui.png" id="7_mloim"]
+[ext_resource type="Texture2D" uid="uid://dwghhwpbdd1gl" path="res://asset/Chilli_Launcher.png" id="7_uloro"]
+[ext_resource type="Texture2D" uid="uid://d1ig5rmkg7xln" path="res://asset/Stove_Cannon.png" id="8_55kyr"]
+[ext_resource type="Texture2D" uid="uid://cpynmou31d7p2" path="res://asset/Garlic_Barrier.png" id="10_sag14"]
+[ext_resource type="Texture2D" uid="uid://basyrqvioq4uc" path="res://asset/Pepper_Grinder.png" id="11_tvcej"]
+[ext_resource type="Texture2D" uid="uid://cbkftt6ykesia" path="res://asset/Ice_Chiller.png" id="12_op24d"]
+[ext_resource type="Texture2D" uid="uid://uvp25d4sky6h" path="res://asset/landmine.png" id="13_ojvuj"]
+[ext_resource type="Texture2D" uid="uid://crx83n360q71k" path="res://asset/net_trap.png" id="14_op24d"]
+[ext_resource type="Texture2D" uid="uid://bypgf2n2pckwu" path="res://asset/gelatin.png" id="15_eijlc"]
+[ext_resource type="Script" uid="uid://bfi1iy5rxqb77" path="res://script/ui/encyclopedia_manager.gd" id="16_20ck4"]
+[ext_resource type="PackedScene" uid="uid://bdx0j2gi021oy" path="res://scene/button_enemies.tscn" id="17_op24d"]
+[ext_resource type="PackedScene" uid="uid://df6l21g4fj21y" path="res://scene/button_tower.tscn" id="18_eijlc"]
+[ext_resource type="PackedScene" uid="uid://cdlf5eqeffb4d" path="res://scene/button_trap.tscn" id="19_ojvuj"]
+[ext_resource type="Texture2D" uid="uid://bwufrpco2i7jn" path="res://asset/button_encyc.png" id="20_eijlc"]
+[ext_resource type="Texture2D" uid="uid://cfrg5ispov634" path="res://asset/bg_panel_encyc.png" id="20_ojvuj"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vf7qe"]
+bg_color = Color(0.211765, 0.211765, 0.211765, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_62unk"]
+bg_color = Color(0.211765, 0.211765, 0.211765, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8ehqn"]
+bg_color = Color(0.211765, 0.211765, 0.211765, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p7wn3"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ojvuj"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_20ck4"]
+bg_color = Color(0.06243112, 0.5973437, 0.6204006, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_op24d"]
+bg_color = Color(0, 0.529439, 0.9356183, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tvcej"]
+bg_color = Color(0, 0.5805759, 0.7224796, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sag14"]
+bg_color = Color(1.8289685e-06, 0.721547, 0.30302638, 1)
+
+[node name="Select_Level" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_62unk")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.968627, 0.968627, 0.968627, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(638, 303)
+scale = Vector2(0.46, 0.46)
+texture = ExtResource("1_hpupe")
+
+[node name="SelectLevel2" type="Sprite2D" parent="."]
+position = Vector2(647.00006, 346.00003)
+scale = Vector2(0.455, 0.455)
+texture = ExtResource("3_jsi6v")
+
+[node name="SelectLevel" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(645, 357)
+texture = ExtResource("3_7a70o")
+
+[node name="Button_Back" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1178.0
+offset_top = 668.0
+offset_right = 1278.0
+offset_bottom = 718.0
+text = "BACK"
+
+[node name="Button_level1" type="Button" parent="."]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 0
+offset_left = 423.0
+offset_top = 444.0
+offset_right = 743.0
+offset_bottom = 764.0
+scale = Vector2(0.46, 0.46)
+icon = ExtResource("4_88rkn")
+flat = true
+
+[node name="unlock_1" type="Sprite2D" parent="Button_level1"]
+position = Vector2(69.565216, 252.1739)
+scale = Vector2(0.595, 0.595)
+
+[node name="stars_label_1" type="Label" parent="Button_level1"]
+layout_mode = 0
+offset_left = -39.130432
+offset_top = 202.17392
+offset_right = 0.8695679
+offset_bottom = 271.17392
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+
+[node name="Button_level2" type="Button" parent="."]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 0
+offset_left = 299.0
+offset_top = 300.0
+offset_right = 619.0
+offset_bottom = 620.0
+scale = Vector2(0.46, 0.46)
+icon = ExtResource("4_88rkn")
+flat = true
+
+[node name="unlock_2" type="Sprite2D" parent="Button_level2"]
+position = Vector2(93.478264, 252.1739)
+scale = Vector2(0.56, 0.56)
+
+[node name="lock_2" type="Sprite2D" parent="Button_level2"]
+position = Vector2(158.69565, 152.1739)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("5_q7x5q")
+
+[node name="stars_label_2" type="Label" parent="Button_level2"]
+layout_mode = 0
+offset_left = -39.130432
+offset_top = 202.17392
+offset_right = 0.8695679
+offset_bottom = 271.17392
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+
+[node name="Button_level3" type="Button" parent="."]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 0
+offset_left = 491.0
+offset_top = 295.0
+offset_right = 811.0
+offset_bottom = 615.0
+scale = Vector2(0.46, 0.46)
+icon = ExtResource("4_88rkn")
+flat = true
+
+[node name="unlock_3" type="Sprite2D" parent="Button_level3"]
+position = Vector2(160.86957, 158.69565)
+
+[node name="lock_3" type="Sprite2D" parent="Button_level3"]
+position = Vector2(163.04349, 143.47826)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("5_q7x5q")
+
+[node name="stars_label_3" type="Label" parent="Button_level3"]
+layout_mode = 0
+offset_left = -39.130432
+offset_top = 202.17392
+offset_right = 0.8695679
+offset_bottom = 271.17392
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+
+[node name="Button_level4" type="Button" parent="."]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 0
+offset_left = 680.0
+offset_top = 257.0
+offset_right = 1000.0
+offset_bottom = 577.0
+scale = Vector2(0.46, 0.46)
+icon = ExtResource("4_88rkn")
+flat = true
+
+[node name="unlock_4" type="Sprite2D" parent="Button_level4"]
+position = Vector2(160.86957, 158.69565)
+
+[node name="lock_4" type="Sprite2D" parent="Button_level4"]
+position = Vector2(163.04349, 150)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("5_q7x5q")
+
+[node name="stars_label_4" type="Label" parent="Button_level4"]
+layout_mode = 0
+offset_left = -39.130432
+offset_top = 202.17392
+offset_right = 0.8695679
+offset_bottom = 271.17392
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+
+[node name="Button_level5" type="Button" parent="."]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 0
+offset_left = 535.0
+offset_top = 153.0
+offset_right = 855.0
+offset_bottom = 473.0
+scale = Vector2(0.46, 0.46)
+icon = ExtResource("4_88rkn")
+flat = true
+
+[node name="unlock_5" type="Sprite2D" parent="Button_level5"]
+position = Vector2(160.86957, 158.69565)
+
+[node name="lock_5" type="Sprite2D" parent="Button_level5"]
+position = Vector2(167.39131, 145.65218)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("5_q7x5q")
+
+[node name="stars_label_5" type="Label" parent="Button_level5"]
+layout_mode = 0
+offset_left = -39.130432
+offset_top = 202.17392
+offset_right = 0.8695679
+offset_bottom = 271.17392
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+
+[node name="Button_Setting" type="Button" parent="."]
+custom_minimum_size = Vector2(150, 100)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -150.0
+offset_top = -2.0
+offset_bottom = 98.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 25
+text = "Setting"
+
+[node name="lock_6" type="Sprite2D" parent="."]
+position = Vector2(704, 104.000015)
+scale = Vector2(0.55200005, 0.55200005)
+texture = ExtResource("5_q7x5q")
+
+[node name="lock_7" type="Sprite2D" parent="."]
+position = Vector2(856.00006, 110.00001)
+scale = Vector2(0.55200005, 0.55200005)
+texture = ExtResource("5_q7x5q")
+
+[node name="lock_8" type="Sprite2D" parent="."]
+position = Vector2(972.00006, 252)
+scale = Vector2(0.55200005, 0.55200005)
+texture = ExtResource("5_q7x5q")
+
+[node name="lock_9" type="Sprite2D" parent="."]
+position = Vector2(930.00006, 436)
+scale = Vector2(0.55200005, 0.55200005)
+texture = ExtResource("5_q7x5q")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 440.0
+offset_top = 465.0
+offset_right = 480.0
+offset_bottom = 507.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "1"
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 316.0
+offset_top = 309.0
+offset_right = 356.0
+offset_bottom = 351.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "2"
+
+[node name="Label3" type="Label" parent="."]
+layout_mode = 0
+offset_left = 501.0
+offset_top = 308.0
+offset_right = 541.0
+offset_bottom = 350.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "3"
+
+[node name="Label4" type="Label" parent="."]
+layout_mode = 0
+offset_left = 704.0
+offset_top = 265.0
+offset_right = 744.0
+offset_bottom = 307.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "4"
+
+[node name="Label5" type="Label" parent="."]
+layout_mode = 0
+offset_left = 550.0
+offset_top = 163.0
+offset_right = 590.0
+offset_bottom = 205.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "5"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -203.0
+offset_top = -116.0
+offset_right = 300.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 25
+
+[node name="Button_Store" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Store
+"
+
+[node name="Button_Encyclopedia" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Encyclopedia"
+
+[node name="Panel_Settings" type="Panel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -450.0
+offset_top = -183.0
+offset_right = 450.0
+offset_bottom = 317.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(450, 0)
+theme_override_styles/panel = SubResource("StyleBoxFlat_vf7qe")
+
+[node name="Label" type="Label" parent="Panel_Settings"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -86.0
+offset_right = 86.0
+offset_bottom = 69.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 50
+text = "SETTINGS"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel_Settings"]
+layout_mode = 0
+offset_left = 102.0
+offset_top = 132.0
+offset_right = 802.0
+offset_bottom = 232.0
+theme_override_constants/separation = 30
+
+[node name="ColorRect" type="ColorRect" parent="Panel_Settings/VBoxContainer"]
+custom_minimum_size = Vector2(700, 90)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel_Settings/VBoxContainer/ColorRect"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 8.0
+offset_right = 182.0
+offset_bottom = 77.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "MUSIC"
+
+[node name="HSlider" type="HSlider" parent="Panel_Settings/VBoxContainer/ColorRect"]
+custom_minimum_size = Vector2(420, 0)
+layout_mode = 0
+offset_left = 250.0
+offset_top = 35.0
+offset_right = 670.0
+offset_bottom = 51.0
+max_value = 1.0
+step = 0.01
+value = 1.0
+
+[node name="ColorRect2" type="ColorRect" parent="Panel_Settings/VBoxContainer"]
+custom_minimum_size = Vector2(700, 90)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel_Settings/VBoxContainer/ColorRect2"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 8.0
+offset_right = 182.0
+offset_bottom = 77.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "SFX"
+
+[node name="HSlider" type="HSlider" parent="Panel_Settings/VBoxContainer/ColorRect2"]
+custom_minimum_size = Vector2(420, 0)
+layout_mode = 0
+offset_left = 250.0
+offset_top = 35.0
+offset_right = 670.0
+offset_bottom = 51.0
+
+[node name="Close_Upgrade" type="Button" parent="Panel_Settings"]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 0
+offset_left = 839.0
+offset_top = 1.0
+offset_right = 899.0
+offset_bottom = 61.0
+theme_override_font_sizes/font_size = 35
+text = "X"
+
+[node name="Panel_Upgrade" type="Panel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -450.0
+offset_top = -240.0
+offset_right = 450.0
+offset_bottom = 260.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(450, 0)
+theme_override_styles/panel = SubResource("StyleBoxFlat_62unk")
+
+[node name="Sprite2D" type="Sprite2D" parent="Panel_Upgrade"]
+position = Vector2(451, 262)
+scale = Vector2(0.30081296, 0.30081296)
+texture = ExtResource("7_mloim")
+
+[node name="Close_Upgrade" type="Button" parent="Panel_Upgrade"]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 0
+offset_left = 839.0
+offset_top = 1.0
+offset_right = 899.0
+offset_bottom = 61.0
+theme_override_font_sizes/font_size = 35
+text = "X"
+
+[node name="total_stars" type="Label" parent="Panel_Upgrade"]
+layout_mode = 0
+offset_left = 298.0
+offset_top = 98.0
+offset_right = 400.0
+offset_bottom = 121.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "1"
+
+[node name="FlowContainer_Tower" type="FlowContainer" parent="Panel_Upgrade"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -335.0
+offset_top = -119.0
+offset_right = 365.0
+offset_bottom = 481.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.665, 0.665)
+pivot_offset = Vector2(350, 0)
+theme_override_constants/h_separation = 145
+theme_override_constants/v_separation = 25
+
+[node name="ColorRect" type="ColorRect" parent="Panel_Upgrade/FlowContainer_Tower"]
+custom_minimum_size = Vector2(275, 150)
+layout_mode = 2
+color = Color(0.44291076, 0.44291076, 0.44291073, 1)
+
+[node name="ColorRect" type="ColorRect" parent="Panel_Upgrade/FlowContainer_Tower/ColorRect"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 0
+offset_left = 17.0
+offset_top = 14.0
+offset_right = 92.0
+offset_bottom = 89.0
+color = Color(0.23392546, 0.23392546, 0.23392543, 1)
+
+[node name="Label" type="Label" parent="Panel_Upgrade/FlowContainer_Tower/ColorRect"]
+layout_mode = 0
+offset_left = 109.0
+offset_top = 17.0
+offset_right = 216.0
+offset_bottom = 40.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "STOVE CANNON"
+
+[node name="Label2" type="Label" parent="Panel_Upgrade/FlowContainer_Tower/ColorRect"]
+layout_mode = 0
+offset_left = 107.89476
+offset_top = 43.60904
+offset_right = 214.89476
+offset_bottom = 66.60904
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "DAMAGE"
+
+[node name="Sprite2D" type="Sprite2D" parent="Panel_Upgrade/FlowContainer_Tower/ColorRect"]
+position = Vector2(53.7594, 52.63159)
+scale = Vector2(0.59, 0.59)
+texture = ExtResource("8_55kyr")
+
+[node name="ColorRect2" type="ColorRect" parent="Panel_Upgrade/FlowContainer_Tower"]
+custom_minimum_size = Vector2(275, 150)
+layout_mode = 2
+color = Color(0.44291076, 0.44291076, 0.44291073, 1)
+
+[node name="ColorRect" type="ColorRect" parent="Panel_Upgrade/FlowContainer_Tower/ColorRect2"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 0
+offset_left = 17.0
+offset_top = 14.0
+offset_right = 92.0
+offset_bottom = 89.0
+color = Color(0.23392546, 0.23392546, 0.23392543, 1)
+
+[node name="Label" type="Label" parent="Panel_Upgrade/FlowContainer_Tower/ColorRect2"]
+layout_mode = 0
+offset_left = 109.0
+offset_top = 17.0
+offset_right = 216.0
+offset_bottom = 40.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "CHILLI LAUNCHER"
+
+[node name="Label2" type="Label" parent="Panel_Upgrade/FlowContainer_Tower/ColorRect2"]
+layout_mode = 0
+offset_left = 107.89476
+offset_top = 43.60904
+offset_right = 214.89476
+offset_bottom = 66.60904
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "BURN SHOT"
+
+[node name="Sprite2D" type="Sprite2D" parent="Panel_Upgrade/FlowContainer_Tower/ColorRect2"]
+position = Vector2(53.7594, 52.631577)
+scale = Vector2(0.59, 0.59)
+texture = ExtResource("7_uloro")
+
+[node name="ColorRect3" type="ColorRect" parent="Panel_Upgrade/FlowContainer_Tower"]
+custom_minimum_size = Vector2(275, 150)
+layout_mode = 2
+color = Color(0.44291076, 0.44291076, 0.44291073, 1)
+
+[node name="ColorRect" type="ColorRect" parent="Panel_Upgrade/FlowContainer_Tower/ColorRect3"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 0
+offset_left = 17.0
+offset_top = 14.0
+offset_right = 92.0
+offset_bottom = 89.0
+color = Color(0.23392546, 0.23392546, 0.23392543, 1)
+
+[node name="Label" type="Label" parent="Panel_Upgrade/FlowContainer_Tower/ColorRect3"]
+layout_mode = 0
+offset_left = 109.0
+offset_top = 17.0
+offset_right = 216.0
+offset_bottom = 40.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "GARLIC BARRIER"
+
+[node name="Label2" type="Label" parent="Panel_Upgrade/FlowContainer_Tower/ColorRect3"]
+layout_mode = 0
+offset_left = 107.89476
+offset_top = 43.60904
+offset_right = 214.89476
+offset_bottom = 66.60904
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "AREA SLOW - DEBUFF"
+
+[node name="Sprite2D" type="Sprite2D" parent="Panel_Upgrade/FlowContainer_Tower/ColorRect3"]
+position = Vector2(53.7594, 52.631577)
+scale = Vector2(0.59, 0.59)
+texture = ExtResource("10_sag14")
+
+[node name="ColorRect4" type="ColorRect" parent="Panel_Upgrade/FlowContainer_Tower"]
+custom_minimum_size = Vector2(275, 150)
+layout_mode = 2
+color = Color(0.44291076, 0.44291076, 0.44291073, 1)
+
+[node name="ColorRect" type="ColorRect" parent="Panel_Upgrade/FlowContainer_Tower/ColorRect4"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 0
+offset_left = 17.0
+offset_top = 14.0
+offset_right = 92.0
+offset_bottom = 89.0
+color = Color(0.23392546, 0.23392546, 0.23392543, 1)
+
+[node name="Label" type="Label" parent="Panel_Upgrade/FlowContainer_Tower/ColorRect4"]
+layout_mode = 0
+offset_left = 109.0
+offset_top = 17.0
+offset_right = 216.0
+offset_bottom = 40.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "PEPPER GRINDER"
+
+[node name="Label2" type="Label" parent="Panel_Upgrade/FlowContainer_Tower/ColorRect4"]
+layout_mode = 0
+offset_left = 107.89476
+offset_top = 43.60904
+offset_right = 214.89476
+offset_bottom = 66.60904
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "SLOW - DAMAGE"
+
+[node name="Sprite2D" type="Sprite2D" parent="Panel_Upgrade/FlowContainer_Tower/ColorRect4"]
+position = Vector2(53.7594, 52.631577)
+scale = Vector2(0.59, 0.59)
+texture = ExtResource("11_tvcej")
+
+[node name="ColorRect5" type="ColorRect" parent="Panel_Upgrade/FlowContainer_Tower"]
+custom_minimum_size = Vector2(275, 150)
+layout_mode = 2
+color = Color(0.44291076, 0.44291076, 0.44291073, 1)
+
+[node name="ColorRect" type="ColorRect" parent="Panel_Upgrade/FlowContainer_Tower/ColorRect5"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 0
+offset_left = 17.0
+offset_top = 14.0
+offset_right = 92.0
+offset_bottom = 89.0
+color = Color(0.23392546, 0.23392546, 0.23392543, 1)
+
+[node name="Label" type="Label" parent="Panel_Upgrade/FlowContainer_Tower/ColorRect5"]
+layout_mode = 0
+offset_left = 109.0
+offset_top = 17.0
+offset_right = 216.0
+offset_bottom = 40.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "ICE CHILLER"
+
+[node name="Label2" type="Label" parent="Panel_Upgrade/FlowContainer_Tower/ColorRect5"]
+layout_mode = 0
+offset_left = 107.89476
+offset_top = 43.60904
+offset_right = 214.89476
+offset_bottom = 66.60904
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "FREEZE - DAMAGE"
+
+[node name="Sprite2D" type="Sprite2D" parent="Panel_Upgrade/FlowContainer_Tower/ColorRect5"]
+position = Vector2(53.7594, 52.631577)
+scale = Vector2(0.59, 0.59)
+texture = ExtResource("12_op24d")
+
+[node name="FlowContainer_Trap" type="FlowContainer" parent="Panel_Upgrade"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -335.0
+offset_top = -119.0
+offset_right = 365.0
+offset_bottom = 481.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.665, 0.665)
+pivot_offset = Vector2(350, 0)
+theme_override_constants/h_separation = 145
+theme_override_constants/v_separation = 25
+
+[node name="ColorRect" type="ColorRect" parent="Panel_Upgrade/FlowContainer_Trap"]
+custom_minimum_size = Vector2(275, 150)
+layout_mode = 2
+color = Color(0.44291076, 0.44291076, 0.44291073, 1)
+
+[node name="ColorRect" type="ColorRect" parent="Panel_Upgrade/FlowContainer_Trap/ColorRect"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 0
+offset_left = 17.0
+offset_top = 14.0
+offset_right = 92.0
+offset_bottom = 89.0
+color = Color(0.23392546, 0.23392546, 0.23392543, 1)
+
+[node name="Label" type="Label" parent="Panel_Upgrade/FlowContainer_Trap/ColorRect"]
+layout_mode = 0
+offset_left = 109.0
+offset_top = 17.0
+offset_right = 216.0
+offset_bottom = 40.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "CHILLI BOMB"
+
+[node name="CountLabel" type="Label" parent="Panel_Upgrade/FlowContainer_Trap/ColorRect"]
+layout_mode = 0
+offset_left = 232.70679
+offset_top = 17.0
+offset_right = 339.7068
+offset_bottom = 40.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "1"
+
+[node name="Label2" type="Label" parent="Panel_Upgrade/FlowContainer_Trap/ColorRect"]
+layout_mode = 0
+offset_left = 107.89476
+offset_top = 43.60904
+offset_right = 214.89476
+offset_bottom = 66.60904
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "DAMAGE"
+
+[node name="Sprite2D" type="Sprite2D" parent="Panel_Upgrade/FlowContainer_Trap/ColorRect"]
+position = Vector2(53.7594, 52.63159)
+scale = Vector2(0.055, 0.055)
+texture = ExtResource("13_ojvuj")
+
+[node name="ColorRect2" type="ColorRect" parent="Panel_Upgrade/FlowContainer_Trap"]
+custom_minimum_size = Vector2(275, 150)
+layout_mode = 2
+color = Color(0.44291076, 0.44291076, 0.44291073, 1)
+
+[node name="ColorRect" type="ColorRect" parent="Panel_Upgrade/FlowContainer_Trap/ColorRect2"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 0
+offset_left = 17.0
+offset_top = 14.0
+offset_right = 92.0
+offset_bottom = 89.0
+color = Color(0.23392546, 0.23392546, 0.23392543, 1)
+
+[node name="Label2" type="Label" parent="Panel_Upgrade/FlowContainer_Trap/ColorRect2"]
+layout_mode = 0
+offset_left = 107.89465
+offset_top = 43.60901
+offset_right = 214.89465
+offset_bottom = 66.60901
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "BURN SHOT"
+
+[node name="Label" type="Label" parent="Panel_Upgrade/FlowContainer_Trap/ColorRect2"]
+layout_mode = 0
+offset_left = 109.0
+offset_top = 17.0
+offset_right = 216.0
+offset_bottom = 40.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "NET TRAP"
+
+[node name="Sprite2D" type="Sprite2D" parent="Panel_Upgrade/FlowContainer_Trap/ColorRect2"]
+position = Vector2(53.7594, 52.631577)
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("14_op24d")
+
+[node name="CountLabel" type="Label" parent="Panel_Upgrade/FlowContainer_Trap/ColorRect2"]
+layout_mode = 0
+offset_left = 232.70679
+offset_top = 17.0
+offset_right = 339.7068
+offset_bottom = 40.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "1"
+
+[node name="ColorRect3" type="ColorRect" parent="Panel_Upgrade/FlowContainer_Trap"]
+custom_minimum_size = Vector2(275, 150)
+layout_mode = 2
+color = Color(0.44291076, 0.44291076, 0.44291073, 1)
+
+[node name="ColorRect" type="ColorRect" parent="Panel_Upgrade/FlowContainer_Trap/ColorRect3"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 0
+offset_left = 17.0
+offset_top = 14.0
+offset_right = 92.0
+offset_bottom = 89.0
+color = Color(0.23392546, 0.23392546, 0.23392543, 1)
+
+[node name="Label2" type="Label" parent="Panel_Upgrade/FlowContainer_Trap/ColorRect3"]
+layout_mode = 0
+offset_left = 107.89465
+offset_top = 43.60901
+offset_right = 214.89465
+offset_bottom = 66.60901
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "KNOCKBACK"
+
+[node name="Label" type="Label" parent="Panel_Upgrade/FlowContainer_Trap/ColorRect3"]
+layout_mode = 0
+offset_left = 109.0
+offset_top = 17.0
+offset_right = 216.0
+offset_bottom = 40.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "GELATIN TRAP"
+
+[node name="Sprite2D" type="Sprite2D" parent="Panel_Upgrade/FlowContainer_Trap/ColorRect3"]
+position = Vector2(53.7594, 52.631577)
+scale = Vector2(0.03, 0.03)
+texture = ExtResource("15_eijlc")
+
+[node name="CountLabel" type="Label" parent="Panel_Upgrade/FlowContainer_Trap/ColorRect3"]
+layout_mode = 0
+offset_left = 232.70679
+offset_top = 17.0
+offset_right = 339.7068
+offset_bottom = 40.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "1"
+
+[node name="button_tower_store" type="Control" parent="Panel_Upgrade"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Button_Garlic" type="Button" parent="Panel_Upgrade/button_tower_store"]
+layout_mode = 0
+offset_left = 279.00003
+offset_top = 315.00003
+offset_right = 389.11002
+offset_bottom = 346.00003
+scale = Vector2(0.835, 0.835)
+text = "BUY GARLIC"
+
+[node name="Button_Stove" type="Button" parent="Panel_Upgrade/button_tower_store"]
+layout_mode = 0
+offset_left = 279.00003
+offset_top = 198.00003
+offset_right = 389.11002
+offset_bottom = 229.00003
+scale = Vector2(0.835, 0.835)
+disabled = true
+text = "✅ OWNED"
+
+[node name="Button_Chilli" type="Button" parent="Panel_Upgrade/button_tower_store"]
+layout_mode = 0
+offset_left = 561.0
+offset_top = 198.0
+offset_right = 671.11
+offset_bottom = 229.0
+scale = Vector2(0.835, 0.835)
+disabled = true
+text = "✅ OWNED"
+
+[node name="Button_Pepper" type="Button" parent="Panel_Upgrade/button_tower_store"]
+layout_mode = 0
+offset_left = 559.00006
+offset_top = 314.0
+offset_right = 669.11005
+offset_bottom = 345.0
+scale = Vector2(0.835, 0.835)
+text = "BUY PEPPER"
+
+[node name="Button_Ice" type="Button" parent="Panel_Upgrade/button_tower_store"]
+layout_mode = 0
+offset_left = 280.00003
+offset_top = 433.0
+offset_right = 390.11005
+offset_bottom = 464.0
+scale = Vector2(0.835, 0.835)
+text = "BUY ICE"
+
+[node name="button_trap_store" type="Control" parent="Panel_Upgrade"]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Button_Chilli_Bomb" type="Button" parent="Panel_Upgrade/button_trap_store"]
+layout_mode = 0
+offset_left = 278.0
+offset_top = 196.00002
+offset_right = 388.11
+offset_bottom = 227.00002
+scale = Vector2(0.835, 0.835)
+text = "BUY BOMB"
+
+[node name="Button_Gelatin_Trap" type="Button" parent="Panel_Upgrade/button_trap_store"]
+layout_mode = 0
+offset_left = 278.0
+offset_top = 313.00003
+offset_right = 388.11
+offset_bottom = 344.00003
+scale = Vector2(0.835, 0.835)
+text = "BUY GELATIN"
+
+[node name="Button_Net_Trap" type="Button" parent="Panel_Upgrade/button_trap_store"]
+layout_mode = 0
+offset_left = 558.0
+offset_top = 196.00002
+offset_right = 668.11
+offset_bottom = 227.00002
+scale = Vector2(0.835, 0.835)
+text = "BUY NET TRAP"
+
+[node name="Button_select_tower" type="Button" parent="Panel_Upgrade"]
+visible = false
+layout_mode = 0
+offset_left = 25.0
+offset_top = 151.0
+offset_right = 125.0
+offset_bottom = 189.0
+text = "TOWER"
+
+[node name="Button_select_trap" type="Button" parent="Panel_Upgrade"]
+visible = false
+layout_mode = 0
+offset_left = 25.0
+offset_top = 209.0
+offset_right = 125.0
+offset_bottom = 247.0
+text = "TRAP"
+
+[node name="Panel_Encyclopedia" type="Panel" parent="."]
+visible = false
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(450, 0)
+theme_override_styles/panel = SubResource("StyleBoxFlat_8ehqn")
+script = ExtResource("16_20ck4")
+enemy_button_scene = ExtResource("17_op24d")
+tower_button_scene = ExtResource("18_eijlc")
+trap_button_scene = ExtResource("19_ojvuj")
+
+[node name="Panel_enemies" type="Panel" parent="Panel_Encyclopedia"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 76.0
+offset_top = 27.0
+offset_right = 76.0
+offset_bottom = 27.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.9, 0.9)
+theme_override_styles/panel = SubResource("StyleBoxFlat_p7wn3")
+
+[node name="TextureRect" type="TextureRect" parent="Panel_Encyclopedia/Panel_enemies"]
+layout_mode = 0
+offset_right = 1294.4445
+offset_bottom = 723.3334
+texture = ExtResource("20_ojvuj")
+expand_mode = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel_Encyclopedia/Panel_enemies"]
+layout_mode = 0
+offset_left = 31.111113
+offset_top = 80.0
+offset_right = 431.1111
+offset_bottom = 800.0
+theme_override_constants/separation = 25
+
+[node name="ColorRect" type="ColorRect" parent="Panel_Encyclopedia/Panel_enemies"]
+visible = false
+layout_mode = 0
+offset_left = 455.55557
+offset_top = 81.111115
+offset_right = 1255.5555
+offset_bottom = 681.1111
+color = Color(0.15487596, 0.154876, 0.15487596, 1)
+
+[node name="Panel_tower" type="Panel" parent="Panel_Encyclopedia"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 76.0
+offset_top = 27.0
+offset_right = 76.0
+offset_bottom = 27.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.9, 0.9)
+theme_override_styles/panel = SubResource("StyleBoxFlat_p7wn3")
+
+[node name="TextureRect" type="TextureRect" parent="Panel_Encyclopedia/Panel_tower"]
+layout_mode = 0
+offset_right = 1294.4445
+offset_bottom = 723.3334
+texture = ExtResource("20_ojvuj")
+expand_mode = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel_Encyclopedia/Panel_tower"]
+layout_mode = 0
+offset_left = 31.111113
+offset_top = 80.0
+offset_right = 431.1111
+offset_bottom = 800.0
+theme_override_constants/separation = 25
+
+[node name="ColorRect" type="ColorRect" parent="Panel_Encyclopedia/Panel_tower"]
+visible = false
+layout_mode = 0
+offset_left = 455.55557
+offset_top = 81.111115
+offset_right = 1255.5555
+offset_bottom = 681.1111
+color = Color(0.15487596, 0.154876, 0.15487596, 1)
+
+[node name="Panel_trap" type="Panel" parent="Panel_Encyclopedia"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 76.0
+offset_top = 27.0
+offset_right = 76.0
+offset_bottom = 27.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.9, 0.9)
+theme_override_styles/panel = SubResource("StyleBoxFlat_ojvuj")
+
+[node name="TextureRect" type="TextureRect" parent="Panel_Encyclopedia/Panel_trap"]
+layout_mode = 0
+offset_right = 1294.4445
+offset_bottom = 723.3334
+texture = ExtResource("20_ojvuj")
+expand_mode = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel_Encyclopedia/Panel_trap"]
+layout_mode = 0
+offset_left = 31.111113
+offset_top = 80.0
+offset_right = 431.1111
+offset_bottom = 800.0
+theme_override_constants/separation = 25
+
+[node name="ColorRect" type="ColorRect" parent="Panel_Encyclopedia/Panel_trap"]
+visible = false
+layout_mode = 0
+offset_left = 455.55557
+offset_top = 81.111115
+offset_right = 1255.5555
+offset_bottom = 681.1111
+color = Color(0.15487596, 0.154876, 0.15487596, 1)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel_Encyclopedia"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.001
+anchor_bottom = 0.056
+offset_left = 104.0
+offset_top = 9.0
+offset_right = 103.71997
+offset_bottom = 38.68
+theme_override_constants/separation = 25
+
+[node name="Button_Enemies" type="Button" parent="Panel_Encyclopedia/HBoxContainer"]
+custom_minimum_size = Vector2(350, 70)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_20ck4")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_op24d")
+theme_override_styles/hover = SubResource("StyleBoxFlat_tvcej")
+icon = ExtResource("20_eijlc")
+flat = true
+clip_text = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="Label" type="Label" parent="Panel_Encyclopedia/HBoxContainer/Button_Enemies"]
+layout_mode = 0
+offset_left = 106.0
+offset_top = 8.0
+offset_right = 334.0
+offset_bottom = 85.0
+theme_override_font_sizes/font_size = 32
+text = "Enemies"
+
+[node name="Button_Tower" type="Button" parent="Panel_Encyclopedia/HBoxContainer"]
+custom_minimum_size = Vector2(350, 70)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_20ck4")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_op24d")
+theme_override_styles/hover = SubResource("StyleBoxFlat_tvcej")
+icon = ExtResource("20_eijlc")
+flat = true
+clip_text = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="Label" type="Label" parent="Panel_Encyclopedia/HBoxContainer/Button_Tower"]
+layout_mode = 0
+offset_left = 127.0
+offset_top = 8.0
+offset_right = 355.0
+offset_bottom = 85.0
+theme_override_font_sizes/font_size = 32
+text = "Tower"
+
+[node name="Button_Trap" type="Button" parent="Panel_Encyclopedia/HBoxContainer"]
+custom_minimum_size = Vector2(350, 70)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_20ck4")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_op24d")
+theme_override_styles/hover = SubResource("StyleBoxFlat_tvcej")
+icon = ExtResource("20_eijlc")
+flat = true
+clip_text = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="Label" type="Label" parent="Panel_Encyclopedia/HBoxContainer/Button_Trap"]
+layout_mode = 0
+offset_left = 150.0
+offset_top = 8.0
+offset_right = 378.0
+offset_bottom = 85.0
+theme_override_font_sizes/font_size = 32
+text = "Trap"
+
+[node name="Button_Close" type="Button" parent="Panel_Encyclopedia"]
+layout_mode = 0
+offset_left = 89.0
+offset_top = 634.0
+offset_right = 149.0
+offset_bottom = 665.0
+text = "CLOSE"
+
+[node name="Detail_Panel" type="Panel" parent="Panel_Encyclopedia"]
+layout_mode = 0
+offset_left = 564.0
+offset_top = 154.0
+offset_right = 1164.0
+offset_bottom = 554.0
+
+[node name="tittle" type="Label" parent="Panel_Encyclopedia/Detail_Panel"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="description" type="RichTextLabel" parent="Panel_Encyclopedia/Detail_Panel"]
+custom_minimum_size = Vector2(600, 0)
+layout_mode = 0
+offset_top = 43.0
+offset_right = 40.0
+offset_bottom = 66.0
+fit_content = true
+scroll_active = false
+
+[node name="Button_Reset" type="Button" parent="."]
+layout_mode = 0
+offset_top = 684.0
+offset_right = 101.0
+offset_bottom = 715.0
+text = "RESET DATA"
+
+[node name="Panel_Locked" type="Panel" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 284.0
+offset_top = 153.0
+offset_right = 1084.0
+offset_bottom = 553.0
+
+[node name="ColorRect" type="ColorRect" parent="Panel_Locked"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.25490198, 0.25490198, 0.25490198, 0.5294118)
+
+[node name="message_label" type="Label" parent="Panel_Locked"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -235.0
+offset_top = -73.0
+offset_right = 236.0
+offset_bottom = -31.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 30
+text = "LEVEL ANDA BELUM TERPENUHI!"
+horizontal_alignment = 1
+
+[node name="Button_Oke" type="Button" parent="Panel_Locked"]
+layout_mode = 0
+offset_left = 251.0
+offset_top = 262.0
+offset_right = 551.0
+offset_bottom = 302.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_sag14")
+text = "OKE MENGERTI"
+
+[connection signal="pressed" from="Button_Back" to="." method="_on_button_back_pressed"]
+[connection signal="pressed" from="Button_level1" to="." method="_on_button_level_1_pressed"]
+[connection signal="pressed" from="Button_level2" to="." method="_on_button_level_2_pressed"]
+[connection signal="pressed" from="Button_level3" to="." method="_on_button_level_3_pressed"]
+[connection signal="pressed" from="Button_level4" to="." method="_on_button_level_4_pressed"]
+[connection signal="pressed" from="Button_level5" to="." method="_on_button_level_5_pressed"]
+[connection signal="pressed" from="Button_Setting" to="." method="_on_button_setting_pressed"]
+[connection signal="pressed" from="HBoxContainer/Button_Store" to="." method="_on_button_upgrade_pressed"]
+[connection signal="pressed" from="HBoxContainer/Button_Encyclopedia" to="." method="_on_button_encyclopedia_pressed"]
+[connection signal="value_changed" from="Panel_Settings/VBoxContainer/ColorRect/HSlider" to="." method="_on_slider_bgm_value_changed"]
+[connection signal="pressed" from="Panel_Settings/Close_Upgrade" to="." method="_on_close_settings_pressed"]
+[connection signal="pressed" from="Panel_Upgrade/Close_Upgrade" to="." method="_on_close_settings_pressed"]
+[connection signal="pressed" from="Panel_Upgrade/button_tower_store/Button_Garlic" to="." method="_on_buy_garlic_pressed"]
+[connection signal="pressed" from="Panel_Upgrade/button_tower_store/Button_Pepper" to="." method="_on_buy_pepper_pressed"]
+[connection signal="pressed" from="Panel_Upgrade/button_tower_store/Button_Ice" to="." method="_on_buy_ice_pressed"]
+[connection signal="pressed" from="Panel_Upgrade/button_trap_store/Button_Chilli_Bomb" to="." method="_on_buy_chilli_bomb_pressed"]
+[connection signal="pressed" from="Panel_Upgrade/button_trap_store/Button_Gelatin_Trap" to="." method="_on_buy_gelatin_trap_pressed"]
+[connection signal="pressed" from="Panel_Upgrade/button_trap_store/Button_Net_Trap" to="." method="_on_buy_net_trap_pressed"]
+[connection signal="pressed" from="Panel_Upgrade/Button_select_tower" to="." method="_on_button_select_tower_pressed"]
+[connection signal="pressed" from="Panel_Upgrade/Button_select_trap" to="." method="_on_button_select_trap_pressed"]
+[connection signal="pressed" from="Panel_Encyclopedia/HBoxContainer/Button_Enemies" to="Panel_Encyclopedia" method="_on_button_enemies_pressed"]
+[connection signal="pressed" from="Panel_Encyclopedia/HBoxContainer/Button_Tower" to="Panel_Encyclopedia" method="_on_button_tower_pressed"]
+[connection signal="pressed" from="Panel_Encyclopedia/HBoxContainer/Button_Trap" to="Panel_Encyclopedia" method="_on_button_trap_pressed"]
+[connection signal="pressed" from="Panel_Encyclopedia/Button_Close" to="Panel_Encyclopedia" method="_on_button_close_pressed"]
+[connection signal="pressed" from="Button_Reset" to="." method="_on_button_reset_pressed"]
+[connection signal="pressed" from="Panel_Locked/Button_Oke" to="." method="_on_ok_button_pressed"]

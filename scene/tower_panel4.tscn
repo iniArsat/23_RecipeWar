@@ -1,0 +1,113 @@
+[gd_scene load_steps=7 format=3 uid="uid://876fanfdout3"]
+
+[ext_resource type="Script" uid="uid://y1maqoqf8nlh" path="res://script/tower/tower_panel.gd" id="1_tt6hp"]
+[ext_resource type="Texture2D" uid="uid://cpynmou31d7p2" path="res://asset/Garlic_Barrier.png" id="2_7mp5b"]
+[ext_resource type="Texture2D" uid="uid://b4lomwvqhr4e0" path="res://asset/coin_cost.png" id="4_7cxoq"]
+[ext_resource type="Texture2D" uid="uid://7krk64a15ku2" path="res://asset/Locked.png" id="5_7mp5b"]
+[ext_resource type="Texture2D" uid="uid://cts7n4owsyc5m" path="res://asset/Garlic_Barrier_Hover.png" id="6_rbunc"]
+[ext_resource type="Texture2D" uid="uid://c85nfx42kstn4" path="res://asset/can_upgrade.png" id="7_sp3nw"]
+
+[node name="TowerPanel" type="Panel" groups=["tower_panel"]]
+custom_minimum_size = Vector2(78, 74)
+offset_right = 78.0
+offset_bottom = 74.0
+script = ExtResource("1_tt6hp")
+selected_tower_type = "Garlic_Barrier"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(39, 37)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_7mp5b")
+
+[node name="TidakCukup" type="Label" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 13.0
+offset_top = 20.0
+offset_right = 98.0
+offset_bottom = 69.0
+scale = Vector2(0.685, 0.685)
+text = "Koin Tidak 
+Cukup"
+horizontal_alignment = 1
+
+[node name="CanUpgrade" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(13.000001, 11.999996)
+scale = Vector2(0.015, 0.015)
+texture = ExtResource("7_sp3nw")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 46.0
+offset_top = -1.0
+offset_right = 86.0
+offset_bottom = 74.0
+scale = Vector2(0.68, 0.68)
+text = "35
+
+"
+horizontal_alignment = 1
+
+[node name="CoinCost" type="Sprite2D" parent="."]
+position = Vector2(71, 7.0000005)
+scale = Vector2(0.075, 0.075)
+texture = ExtResource("4_7cxoq")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_top = 61.0
+offset_right = 78.0
+offset_bottom = 74.0
+
+[node name="Label" type="Label" parent="ColorRect"]
+layout_mode = 0
+offset_left = 13.0
+offset_right = 67.0
+offset_bottom = 23.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 8
+text = "Garlic Barrier"
+horizontal_alignment = 1
+
+[node name="Lock_Garlic" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(39, 35)
+scale = Vector2(0.2596154, 0.2596154)
+texture = ExtResource("5_7mp5b")
+
+[node name="Popup" type="Panel" parent="."]
+visible = false
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_top = -48.0
+offset_right = 100.0
+offset_bottom = -8.0
+
+[node name="ColorRect" type="ColorRect" parent="Popup"]
+visible = false
+layout_mode = 0
+offset_left = -8.0
+offset_top = 9.0
+offset_right = 92.0
+offset_bottom = 34.0
+
+[node name="PopupLabel" type="Label" parent="Popup"]
+visible = false
+layout_mode = 0
+offset_left = -4.0
+offset_top = 10.0
+offset_right = 36.0
+offset_bottom = 33.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 10
+text = "aaaaaaaaaa"
+
+[node name="Sprite2D" type="Sprite2D" parent="Popup"]
+position = Vector2(40, -5)
+scale = Vector2(0.34, 0.34)
+texture = ExtResource("6_rbunc")
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

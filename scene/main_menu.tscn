@@ -1,0 +1,731 @@
+[gd_scene load_steps=8 format=3 uid="uid://cmd7nt2wyncqn"]
+
+[ext_resource type="Script" uid="uid://bgac42ixedltt" path="res://script/ui/main_menu.gd" id="1_3er1b"]
+[ext_resource type="Texture2D" uid="uid://5i844a8eorol" path="res://asset/htp_uii (1).png" id="2_0iwki"]
+[ext_resource type="Texture2D" uid="uid://faesrtocitep" path="res://asset/Select_Encyclopedia.png" id="2_2fwvj"]
+[ext_resource type="Texture2D" uid="uid://cmh7bg0fnueft" path="res://asset/Encyclopedia.png" id="3_0iwki"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rhts7"]
+bg_color = Color(0.211765, 0.211765, 0.211765, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_06t4h"]
+bg_color = Color(0.211765, 0.211765, 0.211765, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dclss"]
+bg_color = Color(0.211765, 0.211765, 0.211765, 1)
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_3er1b")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -311.5
+offset_right = 311.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.281187, 0.281187, 0.281187, 1)
+theme_override_font_sizes/font_size = 100
+text = "RECIPE WAR"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 484.0
+offset_top = 186.0
+offset_right = 784.0
+offset_bottom = 702.0
+theme_override_constants/separation = 10
+
+[node name="Button_Start" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(300, 80)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Start"
+
+[node name="Button_htp" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(300, 80)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "How To Play"
+
+[node name="Button_Setting" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(100, 80)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Settings"
+
+[node name="Button_Credit" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(300, 80)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Credit
+"
+
+[node name="Button_Exit" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(300, 80)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Exit
+"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -276.0
+offset_top = -148.0
+offset_right = 277.0
+offset_bottom = -48.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 50
+
+[node name="Button_Upgrade" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Upgrade
+"
+
+[node name="Button_Encyclopedia" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Encyclopedia
+"
+
+[node name="Panel_Upgrade" type="Panel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -450.0
+offset_top = -183.0
+offset_right = 450.0
+offset_bottom = 317.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(450, 0)
+theme_override_styles/panel = SubResource("StyleBoxFlat_rhts7")
+
+[node name="Label" type="Label" parent="Panel_Upgrade"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -93.5
+offset_top = 10.0
+offset_right = 93.5
+offset_bottom = 65.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 40
+text = "UPGRADE"
+horizontal_alignment = 1
+
+[node name="Close_Upgrade" type="Button" parent="Panel_Upgrade"]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 0
+offset_left = 839.0
+offset_top = 1.0
+offset_right = 899.0
+offset_bottom = 61.0
+theme_override_font_sizes/font_size = 35
+text = "X"
+
+[node name="ColorRect" type="ColorRect" parent="Panel_Upgrade"]
+visible = false
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -61.0
+offset_top = 1.0
+offset_right = -1.0
+offset_bottom = 61.0
+grow_horizontal = 0
+color = Color(0, 1, 1, 1)
+
+[node name="FlowContainer" type="FlowContainer" parent="Panel_Upgrade"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -350.0
+offset_top = -156.0
+offset_right = 350.0
+offset_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(350, 0)
+theme_override_constants/h_separation = 25
+theme_override_constants/v_separation = 25
+
+[node name="ColorRect" type="ColorRect" parent="Panel_Upgrade/FlowContainer"]
+custom_minimum_size = Vector2(335, 100)
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="Panel_Upgrade/FlowContainer/ColorRect"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 0
+offset_left = 17.0
+offset_top = 14.0
+offset_right = 92.0
+offset_bottom = 89.0
+color = Color(0.347817, 0.347817, 0.347817, 1)
+
+[node name="Label" type="Label" parent="Panel_Upgrade/FlowContainer/ColorRect"]
+layout_mode = 0
+offset_left = 109.0
+offset_top = 17.0
+offset_right = 216.0
+offset_bottom = 40.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "TOWER NAME"
+
+[node name="Label2" type="Label" parent="Panel_Upgrade/FlowContainer/ColorRect"]
+layout_mode = 0
+offset_left = 109.0
+offset_top = 63.0
+offset_right = 216.0
+offset_bottom = 86.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "COST : 100"
+
+[node name="Button" type="Button" parent="Panel_Upgrade/FlowContainer/ColorRect"]
+layout_mode = 0
+offset_left = 257.0
+offset_top = 58.0
+offset_right = 327.0
+offset_bottom = 88.0
+text = "BUY
+"
+
+[node name="ColorRect2" type="ColorRect" parent="Panel_Upgrade/FlowContainer"]
+custom_minimum_size = Vector2(335, 100)
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="Panel_Upgrade/FlowContainer/ColorRect2"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 0
+offset_left = 17.0
+offset_top = 14.0
+offset_right = 92.0
+offset_bottom = 89.0
+color = Color(0.347817, 0.347817, 0.347817, 1)
+
+[node name="Label" type="Label" parent="Panel_Upgrade/FlowContainer/ColorRect2"]
+layout_mode = 0
+offset_left = 109.0
+offset_top = 17.0
+offset_right = 216.0
+offset_bottom = 40.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "TOWER NAME"
+
+[node name="Label2" type="Label" parent="Panel_Upgrade/FlowContainer/ColorRect2"]
+layout_mode = 0
+offset_left = 109.0
+offset_top = 63.0
+offset_right = 216.0
+offset_bottom = 86.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "COST : 100"
+
+[node name="Button" type="Button" parent="Panel_Upgrade/FlowContainer/ColorRect2"]
+layout_mode = 0
+offset_left = 257.0
+offset_top = 58.0
+offset_right = 327.0
+offset_bottom = 88.0
+text = "BUY
+"
+
+[node name="ColorRect3" type="ColorRect" parent="Panel_Upgrade/FlowContainer"]
+custom_minimum_size = Vector2(335, 100)
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="Panel_Upgrade/FlowContainer/ColorRect3"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 0
+offset_left = 17.0
+offset_top = 14.0
+offset_right = 92.0
+offset_bottom = 89.0
+color = Color(0.347817, 0.347817, 0.347817, 1)
+
+[node name="Label" type="Label" parent="Panel_Upgrade/FlowContainer/ColorRect3"]
+layout_mode = 0
+offset_left = 109.0
+offset_top = 17.0
+offset_right = 216.0
+offset_bottom = 40.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "TOWER NAME"
+
+[node name="Label2" type="Label" parent="Panel_Upgrade/FlowContainer/ColorRect3"]
+layout_mode = 0
+offset_left = 109.0
+offset_top = 63.0
+offset_right = 216.0
+offset_bottom = 86.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "COST : 100"
+
+[node name="Button" type="Button" parent="Panel_Upgrade/FlowContainer/ColorRect3"]
+layout_mode = 0
+offset_left = 257.0
+offset_top = 58.0
+offset_right = 327.0
+offset_bottom = 88.0
+text = "BUY
+"
+
+[node name="ColorRect4" type="ColorRect" parent="Panel_Upgrade/FlowContainer"]
+custom_minimum_size = Vector2(335, 100)
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="Panel_Upgrade/FlowContainer/ColorRect4"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 0
+offset_left = 17.0
+offset_top = 14.0
+offset_right = 92.0
+offset_bottom = 89.0
+color = Color(0.347817, 0.347817, 0.347817, 1)
+
+[node name="Label" type="Label" parent="Panel_Upgrade/FlowContainer/ColorRect4"]
+layout_mode = 0
+offset_left = 109.0
+offset_top = 17.0
+offset_right = 216.0
+offset_bottom = 40.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "TOWER NAME"
+
+[node name="Label2" type="Label" parent="Panel_Upgrade/FlowContainer/ColorRect4"]
+layout_mode = 0
+offset_left = 109.0
+offset_top = 63.0
+offset_right = 216.0
+offset_bottom = 86.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "COST : 100"
+
+[node name="Button" type="Button" parent="Panel_Upgrade/FlowContainer/ColorRect4"]
+layout_mode = 0
+offset_left = 257.0
+offset_top = 58.0
+offset_right = 327.0
+offset_bottom = 88.0
+text = "BUY
+"
+
+[node name="ColorRect5" type="ColorRect" parent="Panel_Upgrade/FlowContainer"]
+custom_minimum_size = Vector2(335, 100)
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="Panel_Upgrade/FlowContainer/ColorRect5"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 0
+offset_left = 17.0
+offset_top = 14.0
+offset_right = 92.0
+offset_bottom = 89.0
+color = Color(0.347817, 0.347817, 0.347817, 1)
+
+[node name="Label" type="Label" parent="Panel_Upgrade/FlowContainer/ColorRect5"]
+layout_mode = 0
+offset_left = 109.0
+offset_top = 17.0
+offset_right = 216.0
+offset_bottom = 40.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "TOWER NAME"
+
+[node name="Label2" type="Label" parent="Panel_Upgrade/FlowContainer/ColorRect5"]
+layout_mode = 0
+offset_left = 109.0
+offset_top = 63.0
+offset_right = 216.0
+offset_bottom = 86.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "COST : 100"
+
+[node name="Button" type="Button" parent="Panel_Upgrade/FlowContainer/ColorRect5"]
+layout_mode = 0
+offset_left = 257.0
+offset_top = 58.0
+offset_right = 327.0
+offset_bottom = 88.0
+text = "BUY
+"
+
+[node name="ColorRect6" type="ColorRect" parent="Panel_Upgrade/FlowContainer"]
+custom_minimum_size = Vector2(335, 100)
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="Panel_Upgrade/FlowContainer/ColorRect6"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 0
+offset_left = 17.0
+offset_top = 14.0
+offset_right = 92.0
+offset_bottom = 89.0
+color = Color(0.347817, 0.347817, 0.347817, 1)
+
+[node name="Label" type="Label" parent="Panel_Upgrade/FlowContainer/ColorRect6"]
+layout_mode = 0
+offset_left = 109.0
+offset_top = 17.0
+offset_right = 216.0
+offset_bottom = 40.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "TOWER NAME"
+
+[node name="Label2" type="Label" parent="Panel_Upgrade/FlowContainer/ColorRect6"]
+layout_mode = 0
+offset_left = 109.0
+offset_top = 63.0
+offset_right = 216.0
+offset_bottom = 86.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "COST : 100"
+
+[node name="Button" type="Button" parent="Panel_Upgrade/FlowContainer/ColorRect6"]
+layout_mode = 0
+offset_left = 257.0
+offset_top = 58.0
+offset_right = 327.0
+offset_bottom = 88.0
+text = "BUY
+"
+
+[node name="Panel_Credit" type="Panel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -450.0
+offset_top = -183.0
+offset_right = 450.0
+offset_bottom = 317.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(450, 0)
+theme_override_styles/panel = SubResource("StyleBoxFlat_rhts7")
+
+[node name="Label" type="Label" parent="Panel_Credit"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -86.0
+offset_right = 86.0
+offset_bottom = 69.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 50
+text = "CREDIT"
+
+[node name="Close_Upgrade" type="Button" parent="Panel_Credit"]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 0
+offset_left = 839.0
+offset_top = 1.0
+offset_right = 899.0
+offset_bottom = 61.0
+theme_override_font_sizes/font_size = 35
+text = "X"
+
+[node name="Panel_HTP" type="Panel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -450.0
+offset_top = -183.0
+offset_right = 450.0
+offset_bottom = 317.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(450, 0)
+theme_override_styles/panel = SubResource("StyleBoxFlat_rhts7")
+
+[node name="Label" type="Label" parent="Panel_HTP"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -86.0
+offset_right = 86.0
+offset_bottom = 69.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 50
+text = "How To Play"
+
+[node name="Close_Upgrade" type="Button" parent="Panel_HTP"]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 0
+offset_left = 839.0
+offset_top = 1.0
+offset_right = 899.0
+offset_bottom = 61.0
+theme_override_font_sizes/font_size = 35
+text = "X"
+
+[node name="Sprite2D" type="Sprite2D" parent="Panel_HTP"]
+position = Vector2(452, 261)
+scale = Vector2(0.21601205, 0.21601205)
+texture = ExtResource("2_0iwki")
+
+[node name="Panel_Settings" type="Panel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -450.0
+offset_top = -183.0
+offset_right = 450.0
+offset_bottom = 317.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(450, 0)
+theme_override_styles/panel = SubResource("StyleBoxFlat_06t4h")
+
+[node name="Label" type="Label" parent="Panel_Settings"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -86.0
+offset_right = 86.0
+offset_bottom = 69.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 50
+text = "SETTINGS"
+
+[node name="Close_Settings" type="Button" parent="Panel_Settings"]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 0
+offset_left = 839.0
+offset_top = 1.0
+offset_right = 899.0
+offset_bottom = 61.0
+theme_override_font_sizes/font_size = 35
+text = "X"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel_Settings"]
+layout_mode = 0
+offset_left = 102.0
+offset_top = 132.0
+offset_right = 802.0
+offset_bottom = 232.0
+theme_override_constants/separation = 30
+
+[node name="ColorRect" type="ColorRect" parent="Panel_Settings/VBoxContainer"]
+custom_minimum_size = Vector2(700, 90)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel_Settings/VBoxContainer/ColorRect"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 8.0
+offset_right = 182.0
+offset_bottom = 77.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "MUSIC"
+
+[node name="HSlider" type="HSlider" parent="Panel_Settings/VBoxContainer/ColorRect"]
+custom_minimum_size = Vector2(420, 0)
+layout_mode = 0
+offset_left = 250.0
+offset_top = 35.0
+offset_right = 670.0
+offset_bottom = 51.0
+max_value = 1.0
+step = 0.01
+value = 1.0
+
+[node name="ColorRect2" type="ColorRect" parent="Panel_Settings/VBoxContainer"]
+custom_minimum_size = Vector2(700, 90)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel_Settings/VBoxContainer/ColorRect2"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 8.0
+offset_right = 182.0
+offset_bottom = 77.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "SFX"
+
+[node name="HSlider" type="HSlider" parent="Panel_Settings/VBoxContainer/ColorRect2"]
+custom_minimum_size = Vector2(420, 0)
+layout_mode = 0
+offset_left = 250.0
+offset_top = 35.0
+offset_right = 670.0
+offset_bottom = 51.0
+
+[node name="Panel_Encyclopedia" type="Panel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -450.0
+offset_top = -183.0
+offset_right = 450.0
+offset_bottom = 317.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(450, 0)
+theme_override_styles/panel = SubResource("StyleBoxFlat_dclss")
+
+[node name="TextureRect" type="TextureRect" parent="Panel_Encyclopedia"]
+layout_mode = 0
+offset_left = -191.0
+offset_top = -179.0
+offset_right = 1729.0
+offset_bottom = 901.0
+scale = Vector2(0.67, 0.67)
+texture = ExtResource("2_2fwvj")
+
+[node name="Panel_Tower" type="Panel" parent="Panel_Encyclopedia"]
+visible = false
+layout_mode = 0
+offset_left = 20.0
+offset_top = 96.0
+offset_right = 870.0
+offset_bottom = 446.0
+
+[node name="TextureRect" type="TextureRect" parent="Panel_Encyclopedia/Panel_Tower"]
+layout_mode = 0
+offset_left = -208.0
+offset_top = -268.0
+offset_right = 1712.0
+offset_bottom = 812.0
+scale = Vector2(0.665, 0.665)
+texture = ExtResource("3_0iwki")
+
+[node name="Label" type="Label" parent="Panel_Encyclopedia/Panel_Tower"]
+layout_mode = 0
+offset_left = -195.0
+offset_top = -146.0
+offset_right = -6.0
+offset_bottom = -72.0
+theme_override_font_sizes/font_size = 54
+text = "TOWER"
+
+[node name="Panel_Enemies" type="Panel" parent="Panel_Encyclopedia"]
+visible = false
+layout_mode = 0
+offset_left = 20.0
+offset_top = 96.0
+offset_right = 870.0
+offset_bottom = 446.0
+
+[node name="Label" type="Label" parent="Panel_Encyclopedia/Panel_Enemies"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "ENEMIES"
+
+[node name="Label" type="Label" parent="Panel_Encyclopedia"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -176.0
+offset_top = -166.0
+offset_right = 194.0
+offset_bottom = -97.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 50
+text = "ENCYCLOPEDIA"
+
+[node name="Close_Upgrade" type="Button" parent="Panel_Encyclopedia"]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 0
+offset_left = 1010.0
+offset_top = -163.0
+offset_right = 1070.0
+offset_bottom = -103.0
+theme_override_font_sizes/font_size = 35
+text = "X"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel_Encyclopedia"]
+layout_mode = 0
+offset_left = -203.00002
+offset_top = 3.0000038
+offset_right = 537.0
+offset_bottom = 203.0
+scale = Vector2(1.7634981, 1.7634981)
+theme_override_constants/separation = 40
+
+[node name="Button_Tower" type="Button" parent="Panel_Encyclopedia/HBoxContainer"]
+custom_minimum_size = Vector2(350, 200)
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "TOWER"
+
+[node name="Button_Enemies" type="Button" parent="Panel_Encyclopedia/HBoxContainer"]
+custom_minimum_size = Vector2(350, 200)
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "ENEMIES"
+
+[connection signal="pressed" from="VBoxContainer/Button_Start" to="." method="_on_button_start_pressed"]
+[connection signal="pressed" from="VBoxContainer/Button_htp" to="." method="_on_button_htp_pressed"]
+[connection signal="pressed" from="VBoxContainer/Button_Setting" to="." method="_on_button_setting_pressed"]
+[connection signal="pressed" from="VBoxContainer/Button_Credit" to="." method="_on_button_credit_pressed"]
+[connection signal="pressed" from="VBoxContainer/Button_Exit" to="." method="_on_button_exit_pressed"]
+[connection signal="pressed" from="HBoxContainer/Button_Upgrade" to="." method="_on_button_upgrade_pressed"]
+[connection signal="pressed" from="HBoxContainer/Button_Encyclopedia" to="." method="_on_button_encyclopedia_pressed"]
+[connection signal="pressed" from="Panel_Upgrade/Close_Upgrade" to="." method="_on_close_upgrade_pressed"]
+[connection signal="pressed" from="Panel_Credit/Close_Upgrade" to="." method="_on_close_upgrade_pressed"]
+[connection signal="pressed" from="Panel_HTP/Close_Upgrade" to="." method="_on_close_upgrade_pressed"]
+[connection signal="pressed" from="Panel_Settings/Close_Settings" to="." method="_on_close_upgrade_pressed"]
+[connection signal="value_changed" from="Panel_Settings/VBoxContainer/ColorRect/HSlider" to="." method="_on_slider_bgm_value_changed"]
+[connection signal="pressed" from="Panel_Encyclopedia/Close_Upgrade" to="." method="_on_close_upgrade_pressed"]
+[connection signal="pressed" from="Panel_Encyclopedia/HBoxContainer/Button_Tower" to="." method="_on_button_tower_pressed"]
+[connection signal="pressed" from="Panel_Encyclopedia/HBoxContainer/Button_Enemies" to="." method="_on_button_enemies_pressed"]

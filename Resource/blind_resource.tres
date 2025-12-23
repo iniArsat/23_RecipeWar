@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="BlindEffect" load_steps=2 format=3 uid="uid://18uhjducrxso"]
+
+[ext_resource type="Script" uid="uid://b0460k2bmjc4l" path="res://script/strategy_effect/blind_effect.gd" id="1_rgq5u"]
+
+[resource]
+script = ExtResource("1_rgq5u")
+metadata/_custom_type_script = "uid://b0460k2bmjc4l"

@@ -1,0 +1,289 @@
+[gd_scene load_steps=9 format=3 uid="uid://cylqto18g5nl3"]
+
+[ext_resource type="PackedScene" uid="uid://cdgqu8jrfmpij" path="res://scene/Main.tscn" id="1_urr7m"]
+[ext_resource type="PackedScene" uid="uid://jefigy1xqyia" path="res://scene/path_lvl4.tscn" id="2_hra38"]
+[ext_resource type="PackedScene" uid="uid://b7pwdl8r5e6sn" path="res://scene/path_lvl4_1.tscn" id="3_6d3lq"]
+[ext_resource type="PackedScene" uid="uid://dvmwbo4glqd7x" path="res://scene/tower_placement.tscn" id="4_6d3lq"]
+[ext_resource type="Texture2D" uid="uid://vqodxtdb2fl6" path="res://asset/level4_page2.png" id="4_fo0g8"]
+[ext_resource type="Texture2D" uid="uid://cpdhqj7ttfwr5" path="res://asset/level4_page3.png" id="5_iwebe"]
+[ext_resource type="Texture2D" uid="uid://bl2fo3otgncbd" path="res://asset/Locked_new.png" id="6_fo0g8"]
+[ext_resource type="Texture2D" uid="uid://b5nmh720xam6m" path="res://asset/instruction_lvl4_page4.png" id="6_iwebe"]
+
+[node name="Main" instance=ExtResource("1_urr7m")]
+
+[node name="TileMap" parent="." index="0"]
+position = Vector2(103, -1)
+layer_0/tile_data = PackedInt32Array(2, 917504, 5, 3, 917504, 5, 4, 917504, 5, 5, 917504, 5, 6, 917504, 5, 7, 917504, 5, 65544, 917504, 5, 65545, 917504, 5, 65546, 917504, 5, 65547, 917504, 5, 65548, 917504, 5, 131085, 917504, 5, 131086, 917504, 5, 131087, 917504, 5, 131088, 917504, 11, 131089, 917504, 11, 131090, 917504, 11, 65554, 917504, 5, 65553, 917504, 5, 65552, 917504, 5, 65551, 917504, 5, 65550, 917504, 5, 65549, 917504, 5, 65543, 917504, 5, 65542, 917504, 5, 65541, 917504, 5, 65540, 917504, 5, 65539, 917504, 5, 65538, 917504, 5, 65537, 917504, 5, 65536, 917504, 5, 1, 917504, 5, 8, 917504, 5, 9, 917504, 5, 10, 917504, 5, 11, 917504, 5, 12, 917504, 5, 13, 917504, 5, 14, 917504, 5, 15, 917504, 5, 16, 917504, 5, 131082, 917504, 5, 131081, 917504, 5, 17, 917504, 5, 19, 917504, 5, 65555, 917504, 5, 131091, 917504, 11, 18, 917504, 5, 196625, 917504, 11, 262161, 917504, 11, 327697, 917504, 5, 393233, 917504, 5, 393234, 917504, 5, 327699, 917504, 5, 262163, 917504, 11, 393235, 917504, 5, 458771, 917504, 5, 196627, 917504, 11, 196626, 917504, 11, 262162, 917504, 11, 327698, 917504, 5, 524307, 917504, 5, 589843, 917504, 5, 655379, 917504, 5, 720915, 917504, 5, 655378, 917504, 5, 589842, 917504, 5, 524306, 917504, 5, 458770, 917504, 5, 720914, 917504, 5, 458769, 917504, 5, 327696, 917504, 5, 393232, 917504, 5, 458768, 917504, 5, 524304, 917504, 5, 589840, 917504, 5, 655376, 917504, 5, 720912, 917504, 5, 524305, 917504, 5, 589841, 917504, 5, 655377, 917504, 5, 720913, 917504, 5, 262160, 917504, 11, 196624, 917504, 11, 196623, 917504, 5, 262159, 786432, 2, 327695, 917504, 5, 393231, 917504, 5, 458766, 917504, 5, 524302, 917504, 5, 589838, 917504, 5, 655374, 917504, 5, 720910, 917504, 5, 720909, 917504, 5, 393230, 917504, 5, 327694, 917504, 5, 262158, 786432, 2, 196622, 917504, 5, 589839, 917504, 5, 655375, 917504, 5, 524303, 917504, 5, 458767, 917504, 5, 720911, 917504, 5, 458765, 917504, 2, 524301, 917504, 2, 327693, 917504, 2, 393229, 917504, 2, 458764, 917504, 5, 524300, 917504, 2, 393228, 917504, 5, 327692, 917504, 5, 262156, 917504, 5, 196621, 917504, 5, 131084, 917504, 5, 196620, 917504, 5, 262157, 917504, 2, 131080, 917504, 5, 196619, 917504, 5, 131083, 917504, 5, 196617, 917504, 5, 196616, 917504, 5, 196615, 917504, 5, 196614, 917504, 5, 196613, 917504, 5, 131077, 917504, 5, 131076, 917504, 5, 131075, 917504, 5, 131074, 917504, 5, 131073, 917504, 5, 131072, 917504, 5, 196607, 917504, 5, 131071, 917504, 5, 131070, 917504, 5, 65535, 917504, 5, 65534, 917504, 5, 0, 917504, 5, 196606, 917504, 5, 262142, 917504, 5, 196609, 917504, 2, 196608, 917504, 2, 262143, 917504, 5, 327679, 917504, 5, 327678, 917504, 5, 131078, 917504, 5, 196612, 917504, 5, 196611, 917504, 2, 131079, 917504, 5, 196618, 917504, 5, 262151, 917504, 5, 262150, 917504, 5, 327686, 917504, 2, 327685, 917504, 2, 327684, 917504, 2, 262154, 917504, 5, 327689, 917504, 2, 327688, 917504, 2, 327687, 917504, 2, 393222, 917504, 5, 393221, 917504, 5, 458757, 917504, 5, 393223, 917504, 5, 393224, 917504, 5, 327690, 917504, 2, 327691, 917504, 5, 393227, 917504, 5, 393226, 917504, 2, 458761, 917504, 5, 458760, 917504, 5, 524295, 917504, 5, 524294, 917504, 5, 524296, 917504, 5, 524297, 917504, 5, 458762, 917504, 2, 458763, 917504, 5, 589836, 917504, 5, 589835, 917504, 5, 589834, 917504, 5, 589833, 917504, 5, 589832, 917504, 5, 655368, 917504, 5, 655367, 917504, 5, 655370, 917504, 5, 655369, 917504, 5, 655371, 917504, 5, 655372, 917504, 5, 655373, 917504, 5, 720908, 917504, 5, 655366, 917504, 5, 655365, 917504, 5, 589837, 917504, 5, 720905, 917504, 5, 720904, 917504, 5, 720903, 917504, 5, 720902, 917504, 5, 720906, 917504, 5, 720907, 917504, 5, 589831, 917504, 5, 589830, 917504, 5, 524298, 917504, 2, 589829, 917504, 5, 524299, 917504, 2, 393225, 917504, 5, 393220, 917504, 5, 262152, 917504, 5, 262153, 917504, 5, 458758, 917504, 5, 262155, 917504, 5, 458759, 917504, 5, 458756, 917504, 5, 524292, 917504, 5, 524293, 917504, 5, 589828, 917504, 5, 655364, 917504, 5, 720900, 917504, 5, 720901, 917504, 5, 720899, 917504, 5, 655363, 917504, 5, 589827, 917504, 5, 524291, 917504, 5, 458755, 917504, 5, 393219, 917504, 5, 327683, 917504, 2, 262147, 917504, 2, 327682, 917504, 5, 393218, 917504, 5, 458754, 917504, 5, 524290, 917504, 5, 524289, 917504, 5, 589825, 917504, 5, 655361, 917504, 5, 589826, 917504, 5, 262149, 917504, 5, 655362, 917504, 5, 196610, 917504, 2, 262146, 917504, 5, 262145, 917504, 5, 327681, 917504, 5, 393217, 917504, 5, 262148, 917504, 5, 458752, 917504, 2, 524288, 917504, 5, 589823, 917504, 5, 458753, 917504, 5, 327680, 917504, 2, 393216, 917504, 2, 458751, 917504, 5, 458750, 917504, 5, 524286, 917504, 2, 393215, 917504, 5, 262144, 917504, 2, 524287, 917504, 2, 393214, 917504, 5, 589822, 917504, 5, 655358, 917504, 5, 720894, 917504, 5, 720895, 917504, 5, 655360, 917504, 5, 655359, 917504, 5, 786430, 917504, 5, 786431, 917504, 5, 720896, 917504, 5, 720897, 917504, 5, 720898, 917504, 5, 589824, 917504, 5)
+
+[node name="PathSpawner" parent="." index="5"]
+path_scene = ExtResource("2_hra38")
+
+[node name="PathSpawner2" parent="." index="6"]
+path_scene = ExtResource("3_6d3lq")
+
+[node name="wave_lbl" parent="CanvasLayer/UI_Management" index="6"]
+text = "1/6"
+
+[node name="Sprite2D" parent="CanvasLayer/UI_Management/Pathway_Sprite" index="0"]
+position = Vector2(335.13513, -30.270294)
+
+[node name="Sprite2D2" parent="CanvasLayer/UI_Management/Pathway_Sprite" index="1"]
+position = Vector2(1604.3242, 596.7566)
+
+[node name="Sprite2D3" parent="CanvasLayer/UI_Management/Pathway_Sprite" index="2"]
+position = Vector2(1409.7297, 399.99988)
+rotation = 1.5707964
+
+[node name="Sprite2D6" parent="CanvasLayer/UI_Management/Pathway_Sprite" index="3"]
+position = Vector2(1926.4863, 92.97288)
+
+[node name="Sprite2D4" parent="CanvasLayer/UI_Management/Pathway_Sprite" index="4"]
+position = Vector2(2975.135, 774.05396)
+
+[node name="Sprite2D7" parent="CanvasLayer/UI_Management/Pathway_Sprite" index="6"]
+rotation = 4.712389
+
+[node name="Sprite2D8" parent="CanvasLayer/UI_Management/Pathway_Sprite" index="7"]
+position = Vector2(1141.6215, 216.21614)
+
+[node name="Sprite2D9" parent="CanvasLayer/UI_Management/Pathway_Sprite" index="8"]
+position = Vector2(134.0542, 211.89183)
+rotation = 4.712389
+
+[node name="Sprite2D11" parent="CanvasLayer/UI_Management/Pathway_Sprite" index="10"]
+position = Vector2(518.91895, 116.75668)
+rotation = 1.5707964
+
+[node name="Sprite2D12" parent="CanvasLayer/UI_Management/Pathway_Sprite" index="11"]
+position = Vector2(1796.7567, 367.5675)
+
+[node name="Sprite2D13" parent="CanvasLayer/UI_Management/Pathway_Sprite" index="12"]
+position = Vector2(3150.2705, 637.83777)
+rotation = 3.1415927
+
+[node name="Sprite2D14" parent="CanvasLayer/UI_Management/Pathway_Sprite" index="13"]
+position = Vector2(804.3243, 214.05402)
+
+[node name="TowerPanel4" parent="CanvasLayer/UI_Management/Panel_Tower/HBoxContainer" index="2"]
+visible = true
+
+[node name="TowerPanel5" parent="CanvasLayer/UI_Management/Panel_Tower/HBoxContainer" index="3"]
+visible = true
+
+[node name="TowerPanel3" parent="CanvasLayer/UI_Management/Panel_Tower/HBoxContainer" index="4"]
+visible = true
+
+[node name="Instruction_Panel" parent="CanvasLayer/UI_Management" index="18"]
+current_level = 4
+
+[node name="Label2" parent="CanvasLayer/UI_Management/Instruction_Panel/Page1" index="1"]
+text = "LEVEL 4"
+
+[node name="Sprite2D" parent="CanvasLayer/UI_Management/Instruction_Panel/Page2" index="0"]
+texture = ExtResource("4_fo0g8")
+
+[node name="Label2" parent="CanvasLayer/UI_Management/Instruction_Panel/Page2" index="2"]
+text = "LEVEL 4"
+
+[node name="Label6" type="Label" parent="CanvasLayer/UI_Management/Instruction_Panel/Page2" index="3"]
+visible = false
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 96.0
+offset_top = 77.0
+offset_right = 226.0
+offset_bottom = 112.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 11
+text = "gambar bar hp
+mini boss"
+horizontal_alignment = 1
+
+[node name="Label7" type="Label" parent="CanvasLayer/UI_Management/Instruction_Panel/Page2" index="4"]
+visible = false
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -225.0
+offset_top = 77.0
+offset_right = -95.0
+offset_bottom = 112.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 11
+text = "new tower lv 3
+unlock!"
+horizontal_alignment = 1
+
+[node name="Sprite2D" parent="CanvasLayer/UI_Management/Instruction_Panel/Page3" index="0"]
+texture = ExtResource("5_iwebe")
+
+[node name="Label2" parent="CanvasLayer/UI_Management/Instruction_Panel/Page3" index="2"]
+text = "LEVEL 4"
+
+[node name="Label2" parent="CanvasLayer/UI_Management/Instruction_Panel/Page4" index="0"]
+text = "LEVEL 4"
+
+[node name="Label3" parent="CanvasLayer/UI_Management/Instruction_Panel/Page4" index="1"]
+offset_left = -229.0
+offset_top = 196.0
+offset_right = -77.0
+offset_bottom = 245.0
+text = "Use a high-damage 
+tower"
+
+[node name="Label4" parent="CanvasLayer/UI_Management/Instruction_Panel/Page4" index="2"]
+offset_left = -58.0
+offset_top = 194.0
+offset_right = 132.0
+offset_bottom = 243.0
+text = "Place your high-damage 
+tower on the main path"
+
+[node name="Label5" parent="CanvasLayer/UI_Management/Instruction_Panel/Page4" index="3"]
+offset_left = 131.0
+offset_top = 192.0
+offset_right = 261.0
+offset_bottom = 227.0
+text = "Watch the Mini 
+Boss HP bar"
+
+[node name="Sprite2D" parent="CanvasLayer/UI_Management/Instruction_Panel/Page4" index="5"]
+position = Vector2(148, 127)
+scale = Vector2(0.28652284, 0.28652284)
+texture = ExtResource("6_iwebe")
+
+[node name="CircleProgressBar" parent="CanvasLayer/UI_Management" index="22"]
+offset_left = 1.0
+offset_top = 396.0
+offset_right = 541.0
+offset_bottom = 936.0
+
+[node name="CircleProgressBar2" parent="CanvasLayer/UI_Management" index="23"]
+visible = true
+offset_left = 1518.0
+offset_top = 374.0
+offset_right = 2058.0
+offset_bottom = 914.0
+
+[node name="Start_Wave" parent="CanvasLayer/UI_Management" index="24"]
+offset_left = 11.0
+offset_top = 408.99997
+offset_right = 141.0
+offset_bottom = 539.0
+
+[node name="Start_Wave2" parent="CanvasLayer/UI_Management" index="25"]
+visible = true
+offset_left = 1528.0
+offset_top = 385.0
+offset_right = 1658.0
+offset_bottom = 515.0
+
+[node name="locked_Pepper" type="Panel" parent="CanvasLayer" index="1"]
+self_modulate = Color(1, 1, 1, 0)
+offset_left = 505.00003
+offset_top = 575.0
+offset_right = 545.0
+offset_bottom = 615.0
+scale = Vector2(3.3, 3.3)
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/locked_Pepper" index="0"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("6_fo0g8")
+expand_mode = 1
+
+[node name="locked_Ice" type="Panel" parent="CanvasLayer" index="2"]
+self_modulate = Color(1, 1, 1, 0)
+offset_left = 663.0
+offset_top = 574.0
+offset_right = 703.0
+offset_bottom = 614.0
+scale = Vector2(3.3, 3.3)
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/locked_Ice" index="0"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("6_fo0g8")
+expand_mode = 1
+
+[node name="locked_Garlic" type="Panel" parent="CanvasLayer" index="3"]
+self_modulate = Color(1, 1, 1, 0)
+offset_left = 347.0
+offset_top = 577.0
+offset_right = 387.0
+offset_bottom = 617.0
+scale = Vector2(3.3, 3.3)
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/locked_Garlic" index="0"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("6_fo0g8")
+expand_mode = 1
+
+[node name="Area2D" parent="Tower_Placement" index="0"]
+position = Vector2(73.00009, 257)
+
+[node name="Area2D3" parent="Tower_Placement" index="1"]
+position = Vector2(74, 385)
+
+[node name="Area2D4" parent="Tower_Placement" index="2"]
+position = Vector2(810, 443)
+
+[node name="Area2D5" parent="Tower_Placement" index="3"]
+position = Vector2(983, 320.00003)
+
+[node name="Area2D7" parent="Tower_Placement" index="4" instance=ExtResource("4_6d3lq")]
+position = Vector2(950.99994, 500.99997)
+
+[node name="Area2D6" parent="Tower_Placement" index="5"]
+position = Vector2(215, 151)
+
+[node name="Area2D8" parent="Tower_Placement" index="6" instance=ExtResource("4_6d3lq")]
+position = Vector2(490.99997, 379)
+
+[node name="Area2D" parent="Trap_Placement" index="0"]
+position = Vector2(572, 266)
+scale = Vector2(23.5, 2.88)
+
+[node name="Area2D3" parent="Trap_Placement" index="2"]
+position = Vector2(188, 382)
+scale = Vector2(21, 2.88)
+
+[node name="Area2D4" parent="Trap_Placement" index="3"]
+position = Vector2(1015.00006, 441)
+scale = Vector2(26.5, 2.88)
+
+[node name="Area2D5" parent="Trap_Placement" index="4"]
+position = Vector2(840.00006, 324)
+scale = Vector2(9, 2.88)
+
+[node name="Area2D6" parent="Trap_Placement" index="5"]
+position = Vector2(899, 237)
+scale = Vector2(3, 6)
+
+[node name="Area2D8" parent="Trap_Placement" index="6"]
+position = Vector2(780, 383)
+
+[node name="Area2D9" parent="Trap_Placement" index="7"]
+position = Vector2(368, 324)
+
+[node name="Area2D7" parent="Trap_Placement" index="8"]
+position = Vector2(-89, 213)
+
+[node name="DropArea2" parent="TowerArea" index="0"]
+position = Vector2(754, -131)
+
+[node name="CollisionPolygon2D" parent="TowerArea/DropArea2" index="0"]
+polygon = PackedVector2Array(971.4286, 19.642853, 133.92859, 16.071442, 133.92859, 123.214294, -287.49994, 123.214294, -287.49994, 437.50003, -1017.85706, 437.50003, -1035.7142, 544.6428, 555.357, 544.643, 555.357, 442.857, 980.357, 442.857, 978.571, 737.5, 555.357, 735.714, 555.357, 651.786, -1132.1428, 650, -1126.7856, 335.71426, -392.85712, 332.14285, -394.64282, 121.42859, -710.71423, 119.64285, -705.3571, 19.642853, -1337.5, 17.8571, -1339.29, -87.5, -605.3571, -89.285706, -610.71423, 17.857147, 28.571411, 17.857147, 28.571411, -85.71428, 969.64294, -82.14285)
+
+[node name="WaveManager" parent="." index="11"]
+path_spawners = Array[NodePath]([NodePath("../PathSpawner"), NodePath("../PathSpawner2")])
+current_level = 4

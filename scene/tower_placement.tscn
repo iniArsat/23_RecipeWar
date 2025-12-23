@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://dvmwbo4glqd7x"]
+
+[ext_resource type="Texture2D" uid="uid://bsx1j58kqyudr" path="res://asset/Base_Effect.png" id="2_afuax"]
+
+[node name="Area2D" type="Area2D" groups=["drop_area", "valid_drop_area"]]
+scale = Vector2(2.5, 2.5)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0, 0.94455713, 0.7792399, 1)
+position = Vector2(-4.7683716e-07, -9.536743e-07)
+scale = Vector2(0.083333336, 0.083333336)
+texture = ExtResource("2_afuax")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+modulate = Color(1, 1, 1, 0.21176471)
+polygon = PackedVector2Array(-9.999999, -9.999999, 9.999999, -9.999999, 9.999999, 9.999999, -9.999999, 9.999999)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

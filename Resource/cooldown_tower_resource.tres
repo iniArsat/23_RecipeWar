@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="CooldownNerf" load_steps=2 format=3 uid="uid://desyy7idd4al"]
+
+[ext_resource type="Script" uid="uid://dlv2uxmmlbkej" path="res://script/strategy_nerf/cooldown_nerf.gd" id="1_d0uon"]
+
+[resource]
+script = ExtResource("1_d0uon")
+metadata/_custom_type_script = "uid://dlv2uxmmlbkej"

@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://dxb8ugymiu64t"]
+
+[ext_resource type="Script" uid="uid://cels11ppkov0p" path="res://script/bullet/bullet.gd" id="1_n1ndd"]
+[ext_resource type="Texture2D" uid="uid://cxwqxkdbmp0w8" path="res://asset/towerDefense_tile251.png" id="2_6e8q4"]
+[ext_resource type="Resource" uid="uid://trtn1tycgguw" path="res://Resource/freeze_resource.tres" id="2_f77cd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2b2rl"]
+size = Vector2(29, 9)
+
+[node name="IceBullet" type="Area2D" groups=["bullet"]]
+script = ExtResource("1_n1ndd")
+strategy = ExtResource("2_f77cd")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0, 0.435294, 1, 1)
+rotation = 1.5708
+scale = Vector2(0.425, 0.425)
+texture = ExtResource("2_6e8q4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 0.5)
+shape = SubResource("RectangleShape2D_2b2rl")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

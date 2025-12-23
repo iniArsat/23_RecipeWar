@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://cdlf5eqeffb4d"]
+
+[node name="Button_Enemies" type="Button"]
+custom_minimum_size = Vector2(200, 80)
+offset_right = 200.0
+offset_bottom = 50.0

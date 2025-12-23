@@ -1,0 +1,135 @@
+[gd_scene load_steps=13 format=3 uid="uid://c6v33erbstmg6"]
+
+[ext_resource type="Script" uid="uid://cgwyn32p5e1ij" path="res://script/tower/tower_attack.gd" id="1_pjyfp"]
+[ext_resource type="PackedScene" uid="uid://5s3b7tsxo2c4" path="res://scene/bullet/bullet.tscn" id="2_q7fdq"]
+[ext_resource type="Texture2D" uid="uid://d1ig5rmkg7xln" path="res://asset/Stove_Cannon.png" id="3_usq6p"]
+[ext_resource type="Texture2D" uid="uid://u5juc34q4oqq" path="res://asset/Stove_Cannon_lv2.png" id="4_7htku"]
+[ext_resource type="Texture2D" uid="uid://vr8u10k1xgyw" path="res://asset/Stove_Cannon_lv3.png" id="5_enawu"]
+[ext_resource type="Texture2D" uid="uid://bpdoirv4wlyop" path="res://asset/png_palu.png" id="6_oukiy"]
+[ext_resource type="Script" uid="uid://kvis5s4a8808" path="res://script/ui/range_visual.gd" id="7_l64qj"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_om1lo"]
+radius = 144.184
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i4h2n"]
+bg_color = Color(0.907609, 0.224184, 3.85046e-07, 1)
+corner_radius_top_left = 150
+corner_radius_top_right = 150
+corner_radius_bottom_right = 150
+corner_radius_bottom_left = 150
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l8n8j"]
+size = Vector2(40, 30)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6lnxv"]
+bg_color = Color(1, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s4i55"]
+bg_color = Color(0, 0.72549, 0, 1)
+
+[node name="TowerB" type="Node2D" groups=["tower"]]
+script = ExtResource("1_pjyfp")
+bullet_scene = ExtResource("2_q7fdq")
+tower_type = "Stove_Cannon"
+head_texture_level1 = ExtResource("3_usq6p")
+head_texture_level2 = ExtResource("4_7htku")
+head_texture_level3 = ExtResource("5_enawu")
+
+[node name="Head" type="Sprite2D" parent="."]
+rotation = 1.5708
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("3_usq6p")
+
+[node name="Sight" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sight"]
+shape = SubResource("CircleShape2D_om1lo")
+
+[node name="Aim" type="Marker2D" parent="."]
+
+[node name="Panel" type="Panel" parent="."]
+visible = false
+offset_left = -99.0
+offset_top = 27.0
+offset_right = -59.0
+offset_bottom = 67.0
+scale = Vector2(5.12756, 1.63033)
+
+[node name="Area" type="Panel" parent="Panel"]
+visible = false
+modulate = Color(1, 1, 1, 0.168627)
+layout_mode = 0
+offset_left = -8.58108
+offset_top = -104.887
+offset_right = 278.419
+offset_bottom = 182.113
+theme_override_styles/panel = SubResource("StyleBoxFlat_i4h2n")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel"]
+layout_mode = 0
+offset_left = 2.92537
+offset_top = 1.22675
+offset_right = 3913.93
+offset_bottom = 1302.23
+scale = Vector2(0.00868041, 0.0290797)
+
+[node name="TextureButton" type="TextureButton" parent="Panel/HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("6_oukiy")
+texture_pressed = ExtResource("6_oukiy")
+
+[node name="TextureButton2" type="TextureButton" parent="Panel/HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("6_oukiy")
+texture_pressed = ExtResource("6_oukiy")
+
+[node name="TextureButton3" type="TextureButton" parent="Panel/HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("6_oukiy")
+texture_pressed = ExtResource("6_oukiy")
+
+[node name="shape" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="shape"]
+shape = SubResource("RectangleShape2D_l8n8j")
+
+[node name="OverlapArea" type="Area2D" parent="." groups=["invalid_drop_area"]]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="OverlapArea"]
+modulate = Color(1, 1, 1, 0.415686)
+polygon = PackedVector2Array(-21, -16, 21, -16, 21, 16, -21, 16)
+
+[node name="HealthBar" type="ProgressBar" parent="."]
+offset_left = -13.0
+offset_top = -22.0
+offset_right = 57.0
+offset_bottom = 1.0
+scale = Vector2(0.395, 0.395)
+theme_override_styles/background = SubResource("StyleBoxFlat_6lnxv")
+theme_override_styles/fill = SubResource("StyleBoxFlat_s4i55")
+value = 100.0
+fill_mode = 1
+show_percentage = false
+
+[node name="RepairLabel" type="Label" parent="."]
+offset_left = -23.0
+offset_top = 18.0
+offset_right = 24.0
+offset_bottom = 41.0
+text = "repair"
+
+[node name="StatusLabel" type="Label" parent="."]
+offset_left = -27.0
+offset_top = -105.0
+offset_right = 13.0
+offset_bottom = -82.0
+
+[node name="Range_Visual" type="Node2D" parent="."]
+script = ExtResource("7_l64qj")
+
+[connection signal="body_entered" from="Sight" to="." method="_on_area_body_entered"]
+[connection signal="body_exited" from="Sight" to="." method="_on_area_body_exited"]
+[connection signal="pressed" from="Panel/HBoxContainer/TextureButton" to="." method="_on_texture_button_pressed"]
+[connection signal="pressed" from="Panel/HBoxContainer/TextureButton2" to="." method="_on_texture_button_2_pressed"]
+[connection signal="pressed" from="Panel/HBoxContainer/TextureButton3" to="." method="_on_texture_button_3_pressed"]
+[connection signal="input_event" from="shape" to="." method="_on_shape_input_event"]

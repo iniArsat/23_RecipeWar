@@ -1,0 +1,324 @@
+[gd_scene load_steps=20 format=3 uid="uid://d2i5gjafy7xtx"]
+
+[ext_resource type="Script" uid="uid://cgwyn32p5e1ij" path="res://script/tower/tower_attack.gd" id="1_yhyil"]
+[ext_resource type="PackedScene" uid="uid://805pbpmm4hdd" path="res://scene/bullet/Chili_Bullet.tscn" id="2_r0bfv"]
+[ext_resource type="Texture2D" uid="uid://basyrqvioq4uc" path="res://asset/Pepper_Grinder.png" id="3_ofq8r"]
+[ext_resource type="Texture2D" uid="uid://cps18hb8550fn" path="res://asset/Pepper_Grinder_lv2.png" id="4_7lxfl"]
+[ext_resource type="Texture2D" uid="uid://dlc54kow6dry" path="res://asset/Pepper_Grinder_lv3.png" id="5_4h6i3"]
+[ext_resource type="Texture2D" uid="uid://di2dl5tp67x7v" path="res://asset/aura_effect.png" id="6_5rgf7"]
+[ext_resource type="Texture2D" uid="uid://dwghhwpbdd1gl" path="res://asset/Chilli_Launcher.png" id="7_imk68"]
+[ext_resource type="Texture2D" uid="uid://bpdoirv4wlyop" path="res://asset/png_palu.png" id="8_hnpge"]
+[ext_resource type="Script" uid="uid://kvis5s4a8808" path="res://script/ui/range_visual.gd" id="9_471bd"]
+[ext_resource type="Texture2D" uid="uid://diwqymdqfrvj3" path="res://asset/circle_upgrade.png" id="10_6mheq"]
+[ext_resource type="Texture2D" uid="uid://g25f6a0853gv" path="res://asset/button_upgrade.png" id="11_0psx3"]
+[ext_resource type="Texture2D" uid="uid://6wu8ly2pdfg1" path="res://asset/button_Sell.png" id="12_eppl0"]
+[ext_resource type="Texture2D" uid="uid://2jx162v1fxf4" path="res://asset/sell_panel.png" id="13_bfcl5"]
+[ext_resource type="Texture2D" uid="uid://dc2v6ww2m5l8y" path="res://asset/upgrade_panel (1).png" id="14_ww71r"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_om1lo"]
+radius = 144.184
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i4h2n"]
+bg_color = Color(0.907609, 0.224184, 3.85046e-07, 1)
+corner_radius_top_left = 150
+corner_radius_top_right = 150
+corner_radius_bottom_right = 150
+corner_radius_bottom_left = 150
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l8n8j"]
+size = Vector2(40, 30)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l8n8j"]
+bg_color = Color(1, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sapfk"]
+bg_color = Color(0, 0.72549, 0, 1)
+
+[node name="TowerA" type="Node2D" groups=["tower"]]
+script = ExtResource("1_yhyil")
+bullet_scene = ExtResource("2_r0bfv")
+head_texture_level1 = ExtResource("3_ofq8r")
+head_texture_level2 = ExtResource("4_7lxfl")
+head_texture_level3 = ExtResource("5_4h6i3")
+
+[node name="RangeVisual" type="Sprite2D" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0.8)
+position = Vector2(0, -1)
+scale = Vector2(0.28, 0.28)
+texture = ExtResource("6_5rgf7")
+
+[node name="Head" type="Sprite2D" parent="."]
+rotation = 1.5708
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("7_imk68")
+
+[node name="Sight" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sight"]
+shape = SubResource("CircleShape2D_om1lo")
+
+[node name="Aim" type="Marker2D" parent="."]
+
+[node name="Panel" type="Panel" parent="."]
+visible = false
+offset_left = -99.0
+offset_top = 27.0
+offset_right = -59.0
+offset_bottom = 67.0
+scale = Vector2(5.12756, 1.63033)
+
+[node name="Area" type="Panel" parent="Panel"]
+visible = false
+modulate = Color(1, 1, 1, 0.168627)
+layout_mode = 0
+offset_left = -8.58108
+offset_top = -104.887
+offset_right = 278.419
+offset_bottom = 182.113
+theme_override_styles/panel = SubResource("StyleBoxFlat_i4h2n")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel"]
+layout_mode = 0
+offset_left = 2.92537
+offset_top = 1.22675
+offset_right = 3913.93
+offset_bottom = 1302.23
+scale = Vector2(0.00868041, 0.0290797)
+
+[node name="TextureButton" type="TextureButton" parent="Panel/HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("8_hnpge")
+texture_pressed = ExtResource("8_hnpge")
+
+[node name="TextureButton2" type="TextureButton" parent="Panel/HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("8_hnpge")
+texture_pressed = ExtResource("8_hnpge")
+
+[node name="TextureButton3" type="TextureButton" parent="Panel/HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("8_hnpge")
+texture_pressed = ExtResource("8_hnpge")
+
+[node name="shape" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="shape"]
+shape = SubResource("RectangleShape2D_l8n8j")
+
+[node name="OverlapArea" type="Area2D" parent="." groups=["invalid_drop_area"]]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="OverlapArea"]
+modulate = Color(1, 1, 1, 0.415686)
+polygon = PackedVector2Array(-21, -16, 21, -16, 21, 16, -21, 16)
+
+[node name="HealthBar" type="ProgressBar" parent="."]
+offset_left = -13.0
+offset_top = -22.0
+offset_right = 57.0
+offset_bottom = 1.0
+scale = Vector2(0.395, 0.395)
+theme_override_styles/background = SubResource("StyleBoxFlat_l8n8j")
+theme_override_styles/fill = SubResource("StyleBoxFlat_sapfk")
+value = 100.0
+fill_mode = 1
+show_percentage = false
+
+[node name="RepairLabel" type="Label" parent="."]
+offset_left = -23.0
+offset_top = 18.0
+offset_right = 24.0
+offset_bottom = 41.0
+text = "repair"
+
+[node name="StatusLabel" type="Label" parent="."]
+offset_left = -27.0
+offset_top = -105.0
+offset_right = 13.0
+offset_bottom = -82.0
+
+[node name="Range_Visual" type="Node2D" parent="."]
+script = ExtResource("9_471bd")
+
+[node name="Ui_Upgrade" type="Panel" parent="."]
+visible = false
+self_modulate = Color(1, 1, 1, 0)
+offset_left = -294.0
+offset_top = -207.0
+offset_right = 343.0
+offset_bottom = 181.0
+
+[node name="TextureRect" type="TextureRect" parent="Ui_Upgrade"]
+layout_mode = 0
+offset_left = 196.99997
+offset_top = 106.999985
+offset_right = 655.0
+offset_bottom = 565.0
+scale = Vector2(0.425, 0.425)
+texture = ExtResource("10_6mheq")
+
+[node name="Button_Upgrade" type="Button" parent="Ui_Upgrade"]
+layout_mode = 0
+offset_left = 332.0
+offset_top = 214.99998
+offset_right = 502.0
+offset_bottom = 411.0
+scale = Vector2(0.36, 0.36)
+icon = ExtResource("11_0psx3")
+flat = true
+
+[node name="Button_Sell" type="Button" parent="Ui_Upgrade"]
+layout_mode = 0
+offset_left = 196.99998
+offset_top = 127.99999
+offset_right = 367.0
+offset_bottom = 324.0
+scale = Vector2(0.36, 0.36)
+icon = ExtResource("12_eppl0")
+flat = true
+
+[node name="Sell" type="Sprite2D" parent="Ui_Upgrade"]
+position = Vector2(101, 91)
+scale = Vector2(0.375, 0.375)
+texture = ExtResource("13_bfcl5")
+
+[node name="Upgrade" type="Sprite2D" parent="Ui_Upgrade"]
+position = Vector2(502, 301)
+scale = Vector2(0.375, 0.375)
+texture = ExtResource("14_ww71r")
+
+[node name="Before_Container" type="VBoxContainer" parent="Ui_Upgrade/Upgrade"]
+offset_left = -210.66667
+offset_top = -8.0
+offset_right = -170.66667
+offset_bottom = 100.0
+theme_override_constants/separation = 15
+
+[node name="DMG_Before" type="Label" parent="Ui_Upgrade/Upgrade/Before_Container"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 18
+text = "100"
+horizontal_alignment = 1
+
+[node name="RNG_Before" type="Label" parent="Ui_Upgrade/Upgrade/Before_Container"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 18
+text = "100"
+horizontal_alignment = 1
+
+[node name="CD_Before" type="Label" parent="Ui_Upgrade/Upgrade/Before_Container"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 18
+text = "100"
+horizontal_alignment = 1
+
+[node name="After_Container" type="VBoxContainer" parent="Ui_Upgrade/Upgrade"]
+offset_left = -122.66669
+offset_top = -8.0
+offset_right = -82.66669
+offset_bottom = 100.0
+theme_override_constants/separation = 15
+
+[node name="DMG_After" type="Label" parent="Ui_Upgrade/Upgrade/After_Container"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 18
+text = "100"
+horizontal_alignment = 1
+
+[node name="RNG_After" type="Label" parent="Ui_Upgrade/Upgrade/After_Container"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 18
+text = "100"
+horizontal_alignment = 1
+
+[node name="CD_After" type="Label" parent="Ui_Upgrade/Upgrade/After_Container"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 18
+text = "100"
+horizontal_alignment = 1
+
+[node name="Sell_Value" type="Label" parent="Ui_Upgrade"]
+visible = false
+layout_mode = 0
+offset_left = 180.0
+offset_top = 115.0
+offset_right = 220.0
+offset_bottom = 143.0
+theme_override_font_sizes/font_size = 10
+text = "100"
+
+[node name="Upgrade_Cost_Label" type="Label" parent="Ui_Upgrade"]
+visible = false
+layout_mode = 0
+offset_left = 583.0
+offset_top = 339.0
+offset_right = 623.0
+offset_bottom = 367.0
+theme_override_font_sizes/font_size = 10
+text = "100"
+
+[node name="Tower_Name" type="Label" parent="Ui_Upgrade"]
+visible = false
+layout_mode = 0
+offset_left = 5.0
+offset_top = 52.0
+offset_right = 144.0
+offset_bottom = 75.0
+theme_override_font_sizes/font_size = 8
+text = "CHILLI LAUNCHER"
+
+[node name="Button_Sell_Confirm" type="Button" parent="Ui_Upgrade"]
+layout_mode = 0
+offset_left = 153.0
+offset_top = 92.0
+offset_right = 183.0
+offset_bottom = 107.0
+
+[node name="Button_Upgrade_Confirm" type="Button" parent="Ui_Upgrade"]
+layout_mode = 0
+offset_left = 554.0
+offset_top = 312.0
+offset_right = 584.0
+offset_bottom = 327.0
+
+[node name="Close_Main" type="Button" parent="Ui_Upgrade"]
+layout_mode = 0
+offset_left = 350.0
+offset_top = 126.0
+offset_right = 375.0
+offset_bottom = 151.0
+
+[node name="Close_Upgrade" type="Button" parent="Ui_Upgrade"]
+layout_mode = 0
+offset_left = 582.0
+offset_top = 246.0
+offset_right = 607.0
+offset_bottom = 271.0
+
+[node name="Close_Sell" type="Button" parent="Ui_Upgrade"]
+layout_mode = 0
+offset_left = 180.0
+offset_top = 44.0
+offset_right = 205.0
+offset_bottom = 69.0
+
+[node name="StatusEfek" type="Label" parent="."]
+offset_left = -23.0
+offset_top = -49.0
+offset_right = 17.0
+offset_bottom = -26.0
+theme_override_font_sizes/font_size = 10
+text = "aaaaa"
+
+[connection signal="body_entered" from="Sight" to="." method="_on_area_body_entered"]
+[connection signal="body_exited" from="Sight" to="." method="_on_area_body_exited"]
+[connection signal="pressed" from="Panel/HBoxContainer/TextureButton" to="." method="_on_texture_button_pressed"]
+[connection signal="pressed" from="Panel/HBoxContainer/TextureButton2" to="." method="_on_texture_button_2_pressed"]
+[connection signal="pressed" from="Panel/HBoxContainer/TextureButton3" to="." method="_on_texture_button_3_pressed"]
+[connection signal="input_event" from="shape" to="." method="_on_shape_input_event"]

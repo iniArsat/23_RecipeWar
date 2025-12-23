@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="FreezeEffect" load_steps=2 format=3 uid="uid://trtn1tycgguw"]
+
+[ext_resource type="Script" uid="uid://d1y2ltbhxfd47" path="res://script/strategy_effect/freeze_effect.gd" id="1_xv1yp"]
+
+[resource]
+script = ExtResource("1_xv1yp")
+metadata/_custom_type_script = "uid://d1y2ltbhxfd47"

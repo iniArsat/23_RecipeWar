@@ -1,0 +1,294 @@
+[gd_scene load_steps=6 format=3 uid="uid://caxgxwyv2y42s"]
+
+[ext_resource type="Texture2D" uid="uid://bws4wkddkjgs6" path="res://asset/Grease_Rat.png" id="4_s84u2"]
+
+[sub_resource type="GDScript" id="GDScript_uw27d"]
+script/source = "extends BaseEnemy
+
+#region EXPORT VARIABLES
+@export var can_attack_towers := false
+@export var tower_damage := 0.0
+@export var nerf_type: String = \"\"
+@export var nerf_power: float = 0.0
+@export var nerf_duration: float = 0.0
+@export var nerf_effect_resource: NerfEffect
+
+# Fixed values
+@export var tower_attack_range := 120.0
+@export var tower_attack_cooldown := 5.0
+@export var enemy_bullet_scene: PackedScene
+#endregion
+
+#region STATE VARIABLES
+var tower_attack_timer := 0.0
+var current_target_tower: Node = null
+var towers_in_range: Array = []
+var active_effects: Array[StatusEffect] = []
+var miss_count := 0
+var dps_timer := 0.0
+var dps_interval := 1.0
+#endregion
+
+#region NODE REFERENCES
+@onready var status_label: Label = $StatusLabel
+@onready var status_miss_label: Label = $StatusMiss
+#endregion
+
+func _ready() -> void:
+	super._ready()
+	tower_attack_timer = tower_attack_cooldown
+	dps_timer = dps_interval
+	_setup_status_labels()
+
+func _process(delta: float) -> void:
+	super._process(delta)
+	
+	if is_attacking_base:
+		_update_base_attack(delta)
+	
+	if can_attack_towers:
+		_update_tower_attack(delta)
+		_update_status_effects(delta)
+
+func set_enemy_stats(stats: Dictionary) -> void:
+	super.set_enemy_stats(stats)
+	
+	# Set regular enemy specific stats
+	can_attack_towers = stats.get(\"can_attack_towers\", can_attack_towers)
+	tower_damage = stats.get(\"tower_damage\", tower_damage)
+	nerf_type = stats.get(\"nerf_type\", nerf_type)
+	nerf_power = stats.get(\"nerf_power\", nerf_power)
+	nerf_duration = stats.get(\"nerf_duration\", nerf_duration)
+
+func special_update(_delta: float) -> void:
+	pass
+
+func on_take_damage(_amount: float) -> void:
+	pass
+
+func on_death() -> void:
+	print(\"Regular enemy defeated: %s\" % enemy_type)
+
+func on_reach_base() -> void:
+	print(\"%s reached base!\" % enemy_type)
+
+func custom_draw() -> void:
+	draw_circle(Vector2.ZERO, 10, Color.RED)
+
+# ====================================================================
+# ATTACK SYSTEM
+# ====================================================================
+
+func _update_base_attack(delta: float) -> void:
+	dps_timer -= delta
+	if dps_timer <= 0:
+		GameManager._take_damage(dps_damage)
+		dps_timer = dps_interval
+
+func _update_tower_attack(delta: float) -> void:
+	tower_attack_timer -= delta
+	_find_tower_targets()
+	
+	if current_target_tower and tower_attack_timer <= 0:
+		_attack_tower()
+		tower_attack_timer = tower_attack_cooldown
+
+func _find_tower_targets() -> void:
+	if _is_blinded():
+		towers_in_range.clear()
+		current_target_tower = null
+		return
+	
+	var all_towers = get_tree().get_nodes_in_group(\"tower\")
+	
+	# Find new towers
+	for tower in all_towers:
+		if not is_instance_valid(tower):
+			continue
+		
+		var distance = global_position.distance_to(tower.global_position)
+		var is_valid_target = (
+			distance <= tower_attack_range and
+			not tower.is_in_group(\"ignore_damage\") and
+			not tower.is_in_group(\"repair_tower\")
+		)
+		
+		if is_valid_target and not tower in towers_in_range:
+			towers_in_range.append(tower)
+	
+	# Clean up invalid towers
+	for i in range(towers_in_range.size() - 1, -1, -1):
+		var tower = towers_in_range[i]
+		if not is_instance_valid(tower):
+			towers_in_range.remove_at(i)
+			continue
+		
+		var distance = global_position.distance_to(tower.global_position)
+		var is_invalid = (
+			distance > tower_attack_range or
+			tower.is_in_group(\"ignore_damage\") or
+			tower.is_in_group(\"repair_tower\")
+		)
+		
+		if is_invalid:
+			towers_in_range.remove_at(i)
+	
+	# Select target
+	if towers_in_range.size() > 0:
+		if not current_target_tower or not current_target_tower in towers_in_range:
+			current_target_tower = towers_in_range[0]
+	else:
+		current_target_tower = null
+
+func _attack_tower() -> void:
+	if _is_blinded():
+		return
+	
+	if not current_target_tower or not enemy_bullet_scene:
+		return
+	
+	var bullet = enemy_bullet_scene.instantiate()
+	bullet.global_position = global_position
+	bullet.target = current_target_tower
+	bullet.tower_damage = tower_damage
+	
+	if nerf_effect_resource:
+		bullet.nerf_effect_resource = nerf_effect_resource.duplicate()
+	else:
+		bullet.nerf_type = nerf_type
+		bullet.nerf_power = nerf_power
+		bullet.nerf_duration = nerf_duration
+	
+	get_tree().current_scene.add_child(bullet)
+
+# ====================================================================
+# BASE ATTACK SYSTEM
+# ====================================================================
+
+func _attack_base() -> void:
+	GameManager._take_damage(dps_damage)
+
+# ====================================================================
+# STATUS EFFECT SYSTEM
+# ====================================================================
+
+func _update_status_effects(delta: float) -> void:
+	for i in range(active_effects.size() - 1, -1, -1):
+		var effect = active_effects[i]
+		effect.update(self, delta)
+		
+		if effect.is_finished():
+			remove_status_effect(effect)
+
+func add_status_effect(effect_resource: StatusEffect) -> void:
+	for active_effect in active_effects:
+		if active_effect.effect_name == effect_resource.effect_name:
+			_refresh_existing_effect(active_effect, effect_resource)
+			return
+	
+	_add_new_effect(effect_resource)
+
+func _refresh_existing_effect(old_effect: StatusEffect, new_resource: StatusEffect) -> void:
+	old_effect.remove(self)
+	var new_effect = new_resource.duplicate()
+	var index = active_effects.find(old_effect)
+	active_effects[index] = new_effect
+	new_effect.apply(self)
+
+func _add_new_effect(effect_resource: StatusEffect) -> void:
+	var new_effect = effect_resource.duplicate()
+	active_effects.append(new_effect)
+	new_effect.apply(self)
+
+func remove_status_effect(effect: StatusEffect) -> void:
+	if effect in active_effects:
+		effect.remove(self)
+		active_effects.erase(effect)
+
+func has_status_effect(effect_name: String) -> bool:
+	for effect in active_effects:
+		if effect.effect_name == effect_name:
+			return true
+	return false
+
+func _is_blinded() -> bool:
+	return has_status_effect(\"BLIND\")
+
+# ====================================================================
+# UI SYSTEM
+# ====================================================================
+
+func _setup_status_labels() -> void:
+	if status_label:
+		status_label.visible = false
+	
+	if status_miss_label:
+		status_miss_label.visible = false
+		status_miss_label.text = \"MISS: 0\"
+		miss_count = 0
+
+func add_miss() -> void:
+	miss_count += 1
+	
+	if status_miss_label:
+		status_miss_label.text = \"MISS: %s\" % miss_count
+		status_miss_label.visible = true
+		
+		get_tree().create_timer(0.5).timeout.connect(_hide_miss_label)
+
+func _hide_miss_label() -> void:
+	if status_miss_label:
+		status_miss_label.visible = false
+	miss_count = 0
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qi2p4"]
+size = Vector2(12.5, 19.5)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f87vc"]
+bg_color = Color(1, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8u16h"]
+bg_color = Color(0, 0.72549, 0, 1)
+
+[node name="Enemy" type="CharacterBody2D" groups=["player"]]
+script = SubResource("GDScript_uw27d")
+
+[node name="body" type="Sprite2D" parent="."]
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("4_s84u2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.75, -0.25)
+shape = SubResource("RectangleShape2D_qi2p4")
+
+[node name="HealthBar" type="ProgressBar" parent="."]
+offset_left = -13.0
+offset_top = -22.0
+offset_right = 57.0
+offset_bottom = 1.0
+scale = Vector2(0.395, 0.395)
+theme_override_styles/background = SubResource("StyleBoxFlat_f87vc")
+theme_override_styles/fill = SubResource("StyleBoxFlat_8u16h")
+value = 100.0
+fill_mode = 1
+show_percentage = false
+
+[node name="StatusLabel" type="Label" parent="."]
+offset_left = -21.0
+offset_top = -50.0
+offset_right = 19.0
+offset_bottom = -27.0
+
+[node name="TrapStatusLabel" type="Label" parent="."]
+offset_left = -21.0
+offset_top = -39.0
+offset_right = 19.0
+offset_bottom = -16.0
+
+[node name="StatusMiss" type="Label" parent="."]
+visible = false
+offset_left = 12.0
+offset_top = -9.0
+offset_right = 52.0
+offset_bottom = 14.0

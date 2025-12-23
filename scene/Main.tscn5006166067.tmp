@@ -1,0 +1,1133 @@
+[gd_scene load_steps=33 format=3 uid="uid://cdgqu8jrfmpij"]
+
+[ext_resource type="Script" uid="uid://dnepi04ynwh4r" path="res://script/Main.gd" id="1_yiwpq"]
+[ext_resource type="Script" uid="uid://dj4gx2hi8oi4o" path="res://script/path_spawner.gd" id="2_mnmej"]
+[ext_resource type="Texture2D" uid="uid://cetrkxme6dvhe" path="res://asset/towerDefense_tilesheet.png" id="2_s5yxy"]
+[ext_resource type="Texture2D" uid="uid://b2nvuexbphc0f" path="res://asset/ui_main.jpeg" id="3_764rb"]
+[ext_resource type="Texture2D" uid="uid://bsx1j58kqyudr" path="res://asset/Base_Effect.png" id="4_kxuod"]
+[ext_resource type="PackedScene" uid="uid://djmcpbdho8mfs" path="res://scene/base_area.tscn" id="4_s5yxy"]
+[ext_resource type="Texture2D" uid="uid://coctk0rlknn60" path="res://asset/upgrade.png" id="4_yiwpq"]
+[ext_resource type="PackedScene" uid="uid://bme4atb64iaoo" path="res://scene/path_lvl1.tscn" id="5_3hqfm"]
+[ext_resource type="PackedScene" uid="uid://be5mkv6jhk43a" path="res://scene/path_lvl1_2.tscn" id="6_08k7p"]
+[ext_resource type="PackedScene" uid="uid://dg51co7y2svjl" path="res://scene/tower_panel.tscn" id="7_764rb"]
+[ext_resource type="PackedScene" uid="uid://dvcxjo0exr078" path="res://scene/tower_panel2.tscn" id="8_aex65"]
+[ext_resource type="Script" uid="uid://d1i2tv380espq" path="res://script/wave_manager.gd" id="8_eik88"]
+[ext_resource type="Texture2D" uid="uid://b8gr1sk6myax3" path="res://asset/Coin.png" id="9_hmh3n"]
+[ext_resource type="PackedScene" uid="uid://876fanfdout3" path="res://scene/tower_panel4.tscn" id="9_ob58h"]
+[ext_resource type="Texture2D" uid="uid://bs76ddn704ms1" path="res://asset/speed_2.png" id="10_aex65"]
+[ext_resource type="PackedScene" uid="uid://d1tawlmy1183u" path="res://scene/tower_panel3.tscn" id="10_hrl0l"]
+[ext_resource type="Texture2D" uid="uid://dnx56n8o28xsg" path="res://asset/Health.png" id="10_tgqhd"]
+[ext_resource type="Texture2D" uid="uid://b1cbh74gkcewu" path="res://asset/Wave.png" id="11_puvaq"]
+[ext_resource type="PackedScene" uid="uid://cm118swt3y4fw" path="res://scene/tower_panel5.tscn" id="12_gjnlk"]
+[ext_resource type="PackedScene" uid="uid://378bayncw85c" path="res://scene/enemy_GreaseRat.tscn" id="12_hrl0l"]
+[ext_resource type="PackedScene" uid="uid://dth544jd51mm8" path="res://scene/tower_garlic.tscn" id="13_kxuod"]
+[ext_resource type="PackedScene" uid="uid://0pc0pmkc1fpm" path="res://scene/enemy_Squirrelfire.tscn" id="13_tuai4"]
+[ext_resource type="Script" uid="uid://cb8tcw2ikdffd" path="res://script/instruction_panel.gd" id="14_08k7p"]
+[ext_resource type="PackedScene" uid="uid://cyu3hmkm8dew0" path="res://scene/enemy_Monkey.tscn" id="14_ob58h"]
+[ext_resource type="PackedScene" uid="uid://djajniwnkgmk7" path="res://scene/tower_Pepper.tscn" id="15_1dr5g"]
+[ext_resource type="Texture2D" uid="uid://dx4ewcwhteb7x" path="res://asset/Star_Black.png" id="22_puvaq"]
+[ext_resource type="Texture2D" uid="uid://b2kgoj8lh1l4w" path="res://asset/Star_Fill.png" id="23_lcaa3"]
+[ext_resource type="PackedScene" uid="uid://dvmwbo4glqd7x" path="res://scene/tower_placement.tscn" id="23_wosyn"]
+[ext_resource type="Texture2D" uid="uid://bji0p1jse888e" path="res://asset/Pop_Up.png" id="24_vq81u"]
+[ext_resource type="PackedScene" uid="uid://cn8q02huknrt7" path="res://scene/enemy_MiniBoss.tscn" id="29_lcaa3"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wosyn"]
+texture = ExtResource("2_s5yxy")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+8:0/0 = 0
+9:0/0 = 0
+10:0/0 = 0
+11:0/0 = 0
+12:0/0 = 0
+13:0/0 = 0
+14:0/0 = 0
+15:0/0 = 0
+16:0/0 = 0
+17:0/0 = 0
+18:0/0 = 0
+19:0/0 = 0
+20:0/0 = 0
+21:0/0 = 0
+22:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+8:1/0 = 0
+9:1/0 = 0
+10:1/0 = 0
+11:1/0 = 0
+12:1/0 = 0
+13:1/0 = 0
+14:1/0 = 0
+15:1/0 = 0
+16:1/0 = 0
+17:1/0 = 0
+18:1/0 = 0
+19:1/0 = 0
+20:1/0 = 0
+21:1/0 = 0
+22:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+7:2/0 = 0
+8:2/0 = 0
+9:2/0 = 0
+10:2/0 = 0
+11:2/0 = 0
+12:2/0 = 0
+13:2/0 = 0
+14:2/0 = 0
+15:2/0 = 0
+16:2/0 = 0
+17:2/0 = 0
+18:2/0 = 0
+19:2/0 = 0
+20:2/0 = 0
+21:2/0 = 0
+22:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+7:3/0 = 0
+8:3/0 = 0
+9:3/0 = 0
+10:3/0 = 0
+11:3/0 = 0
+12:3/0 = 0
+13:3/0 = 0
+14:3/0 = 0
+15:3/0 = 0
+16:3/0 = 0
+17:3/0 = 0
+18:3/0 = 0
+19:3/0 = 0
+20:3/0 = 0
+21:3/0 = 0
+22:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+6:4/0 = 0
+7:4/0 = 0
+8:4/0 = 0
+9:4/0 = 0
+10:4/0 = 0
+11:4/0 = 0
+12:4/0 = 0
+13:4/0 = 0
+14:4/0 = 0
+15:4/0 = 0
+16:4/0 = 0
+17:4/0 = 0
+18:4/0 = 0
+19:4/0 = 0
+20:4/0 = 0
+21:4/0 = 0
+22:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+4:5/0 = 0
+5:5/0 = 0
+6:5/0 = 0
+7:5/0 = 0
+8:5/0 = 0
+9:5/0 = 0
+10:5/0 = 0
+11:5/0 = 0
+12:5/0 = 0
+13:5/0 = 0
+14:5/0 = 0
+15:5/0 = 0
+16:5/0 = 0
+17:5/0 = 0
+18:5/0 = 0
+19:5/0 = 0
+20:5/0 = 0
+21:5/0 = 0
+22:5/0 = 0
+0:6/0 = 0
+1:6/0 = 0
+2:6/0 = 0
+3:6/0 = 0
+4:6/0 = 0
+5:6/0 = 0
+6:6/0 = 0
+7:6/0 = 0
+8:6/0 = 0
+9:6/0 = 0
+10:6/0 = 0
+11:6/0 = 0
+12:6/0 = 0
+13:6/0 = 0
+14:6/0 = 0
+15:6/0 = 0
+16:6/0 = 0
+17:6/0 = 0
+18:6/0 = 0
+19:6/0 = 0
+20:6/0 = 0
+21:6/0 = 0
+22:6/0 = 0
+0:7/0 = 0
+1:7/0 = 0
+2:7/0 = 0
+3:7/0 = 0
+4:7/0 = 0
+5:7/0 = 0
+6:7/0 = 0
+7:7/0 = 0
+8:7/0 = 0
+9:7/0 = 0
+10:7/0 = 0
+11:7/0 = 0
+12:7/0 = 0
+13:7/0 = 0
+14:7/0 = 0
+15:7/0 = 0
+16:7/0 = 0
+17:7/0 = 0
+18:7/0 = 0
+19:7/0 = 0
+20:7/0 = 0
+21:7/0 = 0
+22:7/0 = 0
+0:8/0 = 0
+1:8/0 = 0
+2:8/0 = 0
+3:8/0 = 0
+4:8/0 = 0
+5:8/0 = 0
+6:8/0 = 0
+7:8/0 = 0
+8:8/0 = 0
+9:8/0 = 0
+10:8/0 = 0
+11:8/0 = 0
+12:8/0 = 0
+13:8/0 = 0
+14:8/0 = 0
+15:8/0 = 0
+16:8/0 = 0
+17:8/0 = 0
+18:8/0 = 0
+19:8/0 = 0
+20:8/0 = 0
+21:8/0 = 0
+22:8/0 = 0
+0:9/0 = 0
+1:9/0 = 0
+2:9/0 = 0
+3:9/0 = 0
+4:9/0 = 0
+5:9/0 = 0
+6:9/0 = 0
+7:9/0 = 0
+8:9/0 = 0
+9:9/0 = 0
+10:9/0 = 0
+11:9/0 = 0
+12:9/0 = 0
+13:9/0 = 0
+14:9/0 = 0
+15:9/0 = 0
+16:9/0 = 0
+17:9/0 = 0
+18:9/0 = 0
+19:9/0 = 0
+20:9/0 = 0
+21:9/0 = 0
+22:9/0 = 0
+0:10/0 = 0
+1:10/0 = 0
+2:10/0 = 0
+3:10/0 = 0
+4:10/0 = 0
+5:10/0 = 0
+6:10/0 = 0
+7:10/0 = 0
+8:10/0 = 0
+9:10/0 = 0
+10:10/0 = 0
+11:10/0 = 0
+12:10/0 = 0
+13:10/0 = 0
+14:10/0 = 0
+15:10/0 = 0
+16:10/0 = 0
+17:10/0 = 0
+18:10/0 = 0
+19:10/0 = 0
+20:10/0 = 0
+21:10/0 = 0
+22:10/0 = 0
+0:11/0 = 0
+1:11/0 = 0
+2:11/0 = 0
+3:11/0 = 0
+4:11/0 = 0
+5:11/0 = 0
+6:11/0 = 0
+7:11/0 = 0
+8:11/0 = 0
+9:11/0 = 0
+10:11/0 = 0
+11:11/0 = 0
+12:11/0 = 0
+13:11/0 = 0
+14:11/0 = 0
+15:11/0 = 0
+16:11/0 = 0
+17:11/0 = 0
+18:11/0 = 0
+19:11/0 = 0
+20:11/0 = 0
+21:11/0 = 0
+22:11/0 = 0
+0:12/0 = 0
+1:12/0 = 0
+2:12/0 = 0
+3:12/0 = 0
+4:12/0 = 0
+5:12/0 = 0
+6:12/0 = 0
+7:12/0 = 0
+8:12/0 = 0
+9:12/0 = 0
+10:12/0 = 0
+11:12/0 = 0
+12:12/0 = 0
+13:12/0 = 0
+14:12/0 = 0
+15:12/0 = 0
+16:12/0 = 0
+17:12/0 = 0
+18:12/0 = 0
+19:12/0 = 0
+20:12/0 = 0
+21:12/0 = 0
+22:12/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_pnqar"]
+tile_size = Vector2i(64, 64)
+sources/0 = SubResource("TileSetAtlasSource_wosyn")
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_yiwpq")
+max_countdown_time = null
+max_reward = null
+
+[node name="TileMap" type="TileMap" parent="."]
+position = Vector2(102, 0)
+scale = Vector2(0.92, 0.92)
+tile_set = SubResource("TileSet_pnqar")
+format = 2
+layer_0/tile_data = PackedInt32Array(0, 917504, 5, 1, 917504, 5, 2, 917504, 5, 3, 917504, 5, 4, 917504, 5, 5, 917504, 5, 6, 917504, 5, 65542, 917504, 5, 65543, 917504, 5, 65544, 917504, 5, 65545, 917504, 5, 8, 917504, 5, 7, 917504, 5, 9, 917504, 5, 10, 917504, 5, 11, 917504, 5, 12, 917504, 5, 13, 917504, 5, 14, 917504, 5, 15, 917504, 5, 16, 917504, 5, 17, 917504, 5, 65553, 917504, 5, 131089, 917504, 5, 196625, 917504, 2, 262161, 917504, 5, 327697, 917504, 5, 524305, 917504, 11, 589841, 917504, 11, 524304, 917504, 11, 458768, 917504, 11, 393232, 917504, 5, 327696, 917504, 5, 262160, 917504, 5, 196624, 917504, 2, 196623, 917504, 2, 393233, 917504, 5, 458769, 917504, 11, 131087, 917504, 5, 65551, 917504, 5, 65550, 917504, 5, 262159, 917504, 5, 131088, 917504, 5, 65552, 917504, 5, 131086, 917504, 5, 196622, 917504, 2, 196621, 917504, 2, 131085, 917504, 5, 131084, 917504, 5, 131083, 917504, 5, 65547, 917504, 5, 65546, 917504, 5, 65548, 917504, 5, 65549, 917504, 5, 131082, 917504, 5, 131081, 917504, 5, 131080, 917504, 5, 131079, 917504, 5, 65541, 917504, 5, 65540, 917504, 5, 65539, 917504, 5, 65538, 917504, 5, 65537, 917504, 5, 65536, 917504, 5, 196609, 917504, 2, 262145, 917504, 5, 327681, 917504, 2, 393217, 917504, 2, 262144, 917504, 5, 196608, 917504, 5, 458753, 917504, 2, 524289, 917504, 2, 458752, 917504, 5, 393216, 917504, 5, 327680, 917504, 5, 524288, 917504, 5, 589825, 917504, 5, 589824, 917504, 5, 524290, 917504, 2, 524291, 917504, 2, 589827, 917504, 5, 589826, 917504, 5, 589828, 917504, 5, 589829, 917504, 5, 589830, 917504, 5, 589831, 917504, 5, 589833, 917504, 5, 589832, 917504, 5, 524293, 917504, 2, 524292, 917504, 2, 458754, 917504, 5, 524294, 917504, 2, 589834, 917504, 5, 589835, 917504, 5, 524295, 917504, 2, 524296, 917504, 2, 524297, 917504, 2, 524298, 917504, 2, 524299, 917504, 2, 589836, 917504, 5, 589837, 917504, 5, 589838, 917504, 5, 589839, 917504, 5, 589840, 917504, 11, 524300, 917504, 2, 458765, 917504, 5, 458766, 917504, 5, 458767, 917504, 5, 524303, 917504, 2, 524302, 917504, 2, 524301, 917504, 2, 393231, 917504, 5, 327695, 917504, 5, 393230, 917504, 2, 327694, 917504, 2, 262158, 917504, 2, 262157, 917504, 5, 327693, 917504, 5, 393229, 917504, 2, 393228, 917504, 2, 458764, 917504, 5, 327692, 917504, 5, 262156, 917504, 5, 196620, 917504, 2, 393227, 917504, 2, 458763, 917504, 5, 327691, 917504, 5, 262155, 917504, 5, 196619, 917504, 2, 458762, 917504, 5, 393226, 917504, 2, 327690, 917504, 5, 196618, 917504, 2, 262154, 917504, 5, 393225, 917504, 2, 327689, 917504, 5, 262153, 917504, 5, 196617, 917504, 2, 196616, 917504, 2, 262152, 917504, 5, 327688, 917504, 2, 393224, 917504, 2, 458760, 917504, 5, 458761, 917504, 5, 262151, 917504, 5, 196615, 917504, 2, 327687, 917504, 2, 393223, 917504, 5, 196614, 917504, 2, 262150, 917504, 5, 327686, 917504, 2, 393222, 917504, 5, 458758, 917504, 5, 458759, 917504, 5, 131078, 917504, 5, 196613, 917504, 2, 131077, 917504, 5, 131076, 917504, 5, 196612, 917504, 2, 262149, 917504, 5, 327685, 917504, 2, 393221, 917504, 5, 393220, 917504, 5, 458756, 917504, 5, 327684, 917504, 2, 262148, 917504, 5, 196611, 917504, 2, 131075, 917504, 5, 458757, 917504, 5, 393219, 917504, 5, 327683, 917504, 2, 262146, 917504, 5, 196610, 917504, 2, 262147, 917504, 5, 458755, 917504, 5, 393218, 917504, 5, 327682, 917504, 2, 131072, 917504, 2, 131073, 917504, 2, 131074, 917504, 5, 18, 917504, 5, 65554, 917504, 5, 131090, 917504, 5, 393234, 917504, 5, 458770, 917504, 11, 327698, 917504, 5, 262162, 917504, 5, 196626, 917504, 2, 524306, 917504, 11, 589842, 917504, 11, 589843, 917504, 11, 524307, 917504, 11, 458771, 917504, 11, 393235, 917504, 5, 327699, 917504, 5, 262163, 917504, 5, 196627, 917504, 2, 131091, 917504, 5, 65555, 917504, 5, 19, 917504, 5, 655379, 917504, 5, 720915, 917504, 5, 655378, 917504, 5, 720914, 917504, 5, 720913, 917504, 5, 720912, 917504, 5, 720911, 917504, 5, 720910, 917504, 5, 720909, 917504, 5, 720908, 917504, 5, 720907, 917504, 5, 655371, 917504, 5, 655370, 917504, 5, 655369, 917504, 5, 720905, 917504, 5, 720904, 917504, 5, 720903, 917504, 5, 655368, 917504, 5, 655372, 917504, 5, 655373, 917504, 5, 655374, 917504, 5, 655375, 917504, 5, 655376, 917504, 5, 655377, 917504, 5, 720906, 917504, 5, 655367, 917504, 5, 655366, 917504, 5, 655365, 917504, 5, 655364, 917504, 5, 655363, 917504, 5, 655362, 917504, 5, 655361, 917504, 5, 655360, 917504, 5, 720895, 917504, 5, 720894, 917504, 5, 720902, 917504, 5, 720901, 917504, 5, 720900, 917504, 5, 720897, 917504, 5, 720896, 917504, 5, 720898, 917504, 5, 720899, 917504, 5, 786431, 917504, 5, 786430, 917504, 5, 65534, 917504, 5, 131070, 917504, 5, 131071, 917504, 5, 196607, 917504, 2, 65535, 917504, 5, 262143, 917504, 5, 393215, 917504, 5, 458751, 917504, 5, 524287, 917504, 5, 589823, 917504, 5, 327679, 917504, 5, 196606, 917504, 2, 262142, 917504, 5, 327678, 917504, 5, 393214, 917504, 5, 458750, 917504, 5, 524286, 917504, 5, 589822, 917504, 5, 655358, 917504, 5, 655359, 917504, 5)
+
+[node name="UiMain" type="Sprite2D" parent="."]
+position = Vector2(2563.85, 362.406)
+scale = Vector2(0.835293, 0.835293)
+texture = ExtResource("3_764rb")
+
+[node name="Base" type="Sprite2D" parent="."]
+position = Vector2(1164, 497.5)
+scale = Vector2(0.96666664, 0.6958332)
+texture = ExtResource("4_kxuod")
+
+[node name="PathSpawner" type="Node2D" parent="."]
+script = ExtResource("2_mnmej")
+path_scene = ExtResource("5_3hqfm")
+
+[node name="PathSpawner2" type="Node2D" parent="."]
+script = ExtResource("2_mnmej")
+path_scene = ExtResource("6_08k7p")
+
+[node name="Base_Area" parent="." instance=ExtResource("4_s5yxy")]
+position = Vector2(43, 31)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="UI_Management" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Countdown" type="Label" parent="CanvasLayer/UI_Management"]
+layout_mode = 0
+offset_left = 556.0
+offset_top = 310.0
+offset_right = 757.0
+offset_bottom = 551.0
+scale = Vector2(0.202271, 0.202271)
+theme_override_font_sizes/font_size = 176
+text = "15"
+
+[node name="Coin" type="Sprite2D" parent="CanvasLayer/UI_Management"]
+position = Vector2(598.14996, 49.39999)
+scale = Vector2(0.445, 0.445)
+texture = ExtResource("9_hmh3n")
+
+[node name="coin_lbl" type="Label" parent="CanvasLayer/UI_Management"]
+layout_mode = 0
+offset_left = 588.0
+offset_top = 28.0
+offset_right = 723.0
+offset_bottom = 97.0
+theme_override_font_sizes/font_size = 32
+text = "100"
+
+[node name="Health" type="Sprite2D" parent="CanvasLayer/UI_Management"]
+position = Vector2(877.00006, 49.199997)
+scale = Vector2(0.445, 0.445)
+texture = ExtResource("10_tgqhd")
+
+[node name="health_lbl" type="Label" parent="CanvasLayer/UI_Management"]
+layout_mode = 0
+offset_left = 867.0
+offset_top = 28.0
+offset_right = 953.0
+offset_bottom = 97.0
+theme_override_font_sizes/font_size = 32
+text = "100"
+
+[node name="Wave" type="Sprite2D" parent="CanvasLayer/UI_Management"]
+position = Vector2(1128, 51)
+scale = Vector2(0.445, 0.445)
+texture = ExtResource("11_puvaq")
+
+[node name="wave_lbl" type="Label" parent="CanvasLayer/UI_Management"]
+layout_mode = 0
+offset_left = 1107.0
+offset_top = 28.0
+offset_right = 1193.0
+offset_bottom = 97.0
+theme_override_font_sizes/font_size = 32
+text = "1/10"
+
+[node name="PopUp_StartWave" type="Sprite2D" parent="CanvasLayer/UI_Management"]
+position = Vector2(69, 222.00003)
+scale = Vector2(0.4625, 0.4625)
+texture = ExtResource("24_vq81u")
+
+[node name="Tutorial_Label" type="Label" parent="CanvasLayer/UI_Management/PopUp_StartWave"]
+offset_left = -92.97298
+offset_top = -8.648723
+offset_right = 97.02702
+offset_bottom = 50.351276
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "TEKAN START WAVE
+UNTUK MULAI!"
+horizontal_alignment = 1
+
+[node name="PopUp_Drag" type="Sprite2D" parent="CanvasLayer/UI_Management"]
+position = Vector2(145, 529.00006)
+rotation = 3.1415927
+scale = Vector2(0.4625, 0.4625)
+texture = ExtResource("24_vq81u")
+
+[node name="Tutorial_Label" type="Label" parent="CanvasLayer/UI_Management/PopUp_Drag"]
+offset_left = 101.62163
+offset_top = 58.378475
+offset_right = 314.62164
+offset_bottom = 117.3785
+rotation = 3.1415927
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "DRAG TOWER PADA 
+AREA YANG TERSEDIA!"
+horizontal_alignment = 1
+
+[node name="PopUp_Upgrade" type="Sprite2D" parent="CanvasLayer/UI_Management"]
+position = Vector2(145, 529.00006)
+rotation = 3.1415927
+scale = Vector2(0.4625, 0.4625)
+texture = ExtResource("24_vq81u")
+
+[node name="Tutorial_Label" type="Label" parent="CanvasLayer/UI_Management/PopUp_Upgrade"]
+offset_left = 101.62163
+offset_top = 58.378475
+offset_right = 314.62164
+offset_bottom = 117.3785
+rotation = 3.1415927
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "DRAG TOWER PADA 
+AREA YANG TERSEDIA!"
+horizontal_alignment = 1
+
+[node name="Panel" type="Panel" parent="CanvasLayer/UI_Management"]
+layout_mode = 0
+offset_left = -4.0
+offset_top = 578.0
+offset_right = 1281.0
+offset_bottom = 719.0
+
+[node name="TowerPanel" parent="CanvasLayer/UI_Management/Panel" instance=ExtResource("7_764rb")]
+layout_mode = 0
+offset_left = 42.0
+offset_top = 17.0
+offset_right = 120.0
+offset_bottom = 91.0
+scale = Vector2(1.36718, 1.36718)
+stove_cannon_scene = null
+ice_chiller_scene = null
+garlic_barrier_scene = null
+selected_tower_type = "Chilli_Launcher"
+
+[node name="TowerPanel2" parent="CanvasLayer/UI_Management/Panel" instance=ExtResource("8_aex65")]
+layout_mode = 0
+offset_left = 200.0
+offset_top = 17.0
+offset_right = 278.0
+offset_bottom = 91.0
+scale = Vector2(1.36718, 1.36718)
+chilli_launcher_scene = null
+ice_chiller_scene = null
+garlic_barrier_scene = null
+
+[node name="TowerPanel3" parent="CanvasLayer/UI_Management/Panel" instance=ExtResource("10_hrl0l")]
+visible = false
+layout_mode = 0
+offset_left = 371.0
+offset_top = 17.0
+offset_right = 449.0
+offset_bottom = 91.0
+scale = Vector2(1.36718, 1.36718)
+stove_cannon_scene = null
+chilli_launcher_scene = null
+garlic_barrier_scene = null
+
+[node name="TowerPanel4" parent="CanvasLayer/UI_Management/Panel" instance=ExtResource("9_ob58h")]
+visible = false
+layout_mode = 0
+offset_left = 539.0
+offset_top = 16.0
+offset_right = 617.0
+offset_bottom = 90.0
+scale = Vector2(1.367, 1.367)
+garlic_barrier_scene = ExtResource("13_kxuod")
+
+[node name="TowerPanel5" parent="CanvasLayer/UI_Management/Panel" instance=ExtResource("12_gjnlk")]
+visible = false
+layout_mode = 0
+offset_left = 678.0
+offset_top = 17.0
+offset_right = 756.0
+offset_bottom = 91.0
+scale = Vector2(1.367, 1.367)
+stove_cannon_scene = null
+chilli_launcher_scene = null
+ice_chiller_scene = null
+garlic_barrier_scene = null
+pepper_grinder_scene = ExtResource("15_1dr5g")
+
+[node name="TextureButton" type="TextureButton" parent="CanvasLayer/UI_Management"]
+visible = false
+layout_mode = 0
+offset_left = 3.0
+offset_top = 492.0
+offset_right = 1923.0
+offset_bottom = 1572.0
+scale = Vector2(0.0799991, 0.0799991)
+texture_normal = ExtResource("4_yiwpq")
+texture_pressed = ExtResource("4_yiwpq")
+
+[node name="Percepat" type="TextureButton" parent="CanvasLayer/UI_Management"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -1.15
+anchor_top = 11.425
+anchor_right = -1.15
+anchor_bottom = 11.425
+offset_left = 42.0
+offset_top = 16.0
+offset_right = 1343.0
+offset_bottom = 1317.0
+scale = Vector2(0.0799993, 0.0797322)
+texture_normal = ExtResource("10_aex65")
+texture_pressed = ExtResource("10_aex65")
+metadata/_edit_use_anchors_ = true
+
+[node name="Gameover_Panel" type="Panel" parent="CanvasLayer/UI_Management"]
+visible = false
+layout_mode = 0
+offset_left = 267.0
+offset_top = 104.0
+offset_right = 904.0
+offset_bottom = 492.0
+
+[node name="Label" type="Label" parent="CanvasLayer/UI_Management/Gameover_Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -115.0
+offset_right = 115.0
+offset_bottom = 55.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 40
+text = "GAME OVER"
+
+[node name="Restart" type="Button" parent="CanvasLayer/UI_Management/Gameover_Panel"]
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 0
+offset_left = 198.0
+offset_top = 297.0
+offset_right = 298.0
+offset_bottom = 347.0
+text = "RESTART"
+
+[node name="Continue" type="Button" parent="CanvasLayer/UI_Management/Gameover_Panel"]
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 0
+offset_left = 330.0
+offset_top = 296.0
+offset_right = 430.0
+offset_bottom = 346.0
+text = "CONTINUE"
+
+[node name="Ui_Upgrade" type="Panel" parent="CanvasLayer/UI_Management"]
+visible = false
+layout_mode = 0
+offset_left = 267.0
+offset_top = 104.0
+offset_right = 904.0
+offset_bottom = 492.0
+
+[node name="Tower_Name_Label" type="Label" parent="CanvasLayer/UI_Management/Ui_Upgrade"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 45.5
+offset_top = 87.0
+offset_right = 275.5
+offset_bottom = 142.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 24
+text = "Stove Cannon"
+
+[node name="Label_Upgrade" type="Label" parent="CanvasLayer/UI_Management/Ui_Upgrade"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -114.5
+offset_top = 7.0
+offset_right = 115.5
+offset_bottom = 62.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 40
+text = "UPGRADE"
+
+[node name="Upgrade_Cost_Label" type="Label" parent="CanvasLayer/UI_Management/Ui_Upgrade"]
+layout_mode = 0
+offset_left = 434.0
+offset_top = 250.0
+offset_right = 474.0
+offset_bottom = 278.0
+theme_override_font_sizes/font_size = 20
+text = "100"
+
+[node name="Sell_Value" type="Label" parent="CanvasLayer/UI_Management/Ui_Upgrade"]
+layout_mode = 0
+offset_left = 34.0
+offset_top = 283.0
+offset_right = 74.0
+offset_bottom = 311.0
+theme_override_font_sizes/font_size = 20
+text = "100"
+
+[node name="Upgrade_Button" type="Button" parent="CanvasLayer/UI_Management/Ui_Upgrade"]
+layout_mode = 0
+offset_left = 417.0
+offset_top = 319.0
+offset_right = 500.0
+offset_bottom = 350.0
+text = "UPGRADE"
+
+[node name="Sell_Button" type="Button" parent="CanvasLayer/UI_Management/Ui_Upgrade"]
+layout_mode = 0
+offset_left = 146.0
+offset_top = 319.0
+offset_right = 229.0
+offset_bottom = 350.0
+text = "SELL"
+
+[node name="Close_Upgrade" type="Button" parent="CanvasLayer/UI_Management/Ui_Upgrade"]
+layout_mode = 0
+offset_left = 579.0
+offset_right = 637.0
+offset_bottom = 31.0
+text = "CLOSE"
+
+[node name="Instruction_Panel" type="Panel" parent="CanvasLayer/UI_Management"]
+visible = false
+layout_mode = 0
+offset_left = 267.0
+offset_top = 104.0
+offset_right = 904.0
+offset_bottom = 492.0
+script = ExtResource("14_08k7p")
+
+[node name="Page1" type="Panel" parent="CanvasLayer/UI_Management/Instruction_Panel"]
+visible = false
+layout_mode = 0
+offset_left = 171.0
+offset_top = 83.0
+offset_right = 471.0
+offset_bottom = 283.0
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/UI_Management/Instruction_Panel/Page1"]
+layout_mode = 0
+offset_left = -128.0
+offset_top = -18.0
+offset_right = 427.0
+offset_bottom = 275.0
+texture = ExtResource("4_kxuod")
+
+[node name="Label" type="Label" parent="CanvasLayer/UI_Management/Instruction_Panel/Page1"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -239.0
+offset_top = -45.0
+offset_right = 239.0
+offset_bottom = 82.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "selamat datang di dapur desa rempah !
+kini musuh pertama mulai mendekat melalui jalur utama
+pasang tower di area build untuk melindungi dapur chef juno.
+gunakan coin untuk membeli tower pertama"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="CanvasLayer/UI_Management/Instruction_Panel/Page1"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -29.5
+offset_right = 29.5
+offset_bottom = 23.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+text = "LEVEL 1"
+horizontal_alignment = 1
+
+[node name="Page2" type="Panel" parent="CanvasLayer/UI_Management/Instruction_Panel"]
+visible = false
+layout_mode = 0
+offset_left = 171.0
+offset_top = 83.0
+offset_right = 471.0
+offset_bottom = 283.0
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/UI_Management/Instruction_Panel/Page2"]
+layout_mode = 0
+offset_left = -128.0
+offset_top = -18.0
+offset_right = 427.0
+offset_bottom = 275.0
+texture = ExtResource("4_kxuod")
+
+[node name="Label2" type="Label" parent="CanvasLayer/UI_Management/Instruction_Panel/Page2"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -29.5
+offset_right = 29.5
+offset_bottom = 23.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+text = "LEVEL 1"
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="CanvasLayer/UI_Management/Instruction_Panel/Page2"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -221.0
+offset_top = 153.0
+offset_right = -91.0
+offset_bottom = 188.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Build First Tower"
+horizontal_alignment = 1
+
+[node name="Label4" type="Label" parent="CanvasLayer/UI_Management/Instruction_Panel/Page2"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -65.0
+offset_top = 153.0
+offset_right = 65.0
+offset_bottom = 188.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Start Wave"
+horizontal_alignment = 1
+
+[node name="Label5" type="Label" parent="CanvasLayer/UI_Management/Instruction_Panel/Page2"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 96.0
+offset_top = 153.0
+offset_right = 226.0
+offset_bottom = 188.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Upgrade Tower"
+horizontal_alignment = 1
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/UI_Management/Instruction_Panel/Page2"]
+modulate = Color(0.26657522, 0.2665752, 0.2665752, 1)
+layout_mode = 0
+offset_left = -53.0
+offset_top = 54.999996
+offset_right = 187.0
+offset_bottom = 295.0
+scale = Vector2(0.3600012, 0.3600012)
+texture = ExtResource("4_kxuod")
+
+[node name="TextureRect3" type="TextureRect" parent="CanvasLayer/UI_Management/Instruction_Panel/Page2"]
+modulate = Color(0.26657522, 0.2665752, 0.2665752, 1)
+layout_mode = 0
+offset_left = 106.999985
+offset_top = 54.999996
+offset_right = 347.0
+offset_bottom = 295.0
+scale = Vector2(0.3600012, 0.3600012)
+texture = ExtResource("4_kxuod")
+
+[node name="TextureRect4" type="TextureRect" parent="CanvasLayer/UI_Management/Instruction_Panel/Page2"]
+modulate = Color(0.26657522, 0.2665752, 0.2665752, 1)
+layout_mode = 0
+offset_left = 266.99997
+offset_top = 54.999996
+offset_right = 507.0
+offset_bottom = 295.0
+scale = Vector2(0.3600012, 0.3600012)
+texture = ExtResource("4_kxuod")
+
+[node name="Label" type="Label" parent="CanvasLayer/UI_Management/Instruction_Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -115.0
+offset_right = 115.0
+offset_bottom = 55.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 40
+text = "INSTRUCTION"
+
+[node name="SkipButton" type="Button" parent="CanvasLayer/UI_Management/Instruction_Panel"]
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 21.5
+offset_top = -91.0
+offset_right = 121.5
+offset_bottom = -41.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "SKIP"
+
+[node name="ContinueButton" type="Button" parent="CanvasLayer/UI_Management/Instruction_Panel"]
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -132.5
+offset_top = -88.0
+offset_right = -32.5
+offset_bottom = -38.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "CONTINUE"
+
+[node name="Victory_Panel" type="Panel" parent="CanvasLayer/UI_Management"]
+visible = false
+layout_mode = 0
+offset_left = 267.0
+offset_top = 104.0
+offset_right = 904.0
+offset_bottom = 492.0
+
+[node name="star_1_blank" type="Sprite2D" parent="CanvasLayer/UI_Management/Victory_Panel"]
+position = Vector2(211, 154)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("22_puvaq")
+
+[node name="star_1_fill" type="Sprite2D" parent="CanvasLayer/UI_Management/Victory_Panel"]
+position = Vector2(211, 154)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("23_lcaa3")
+
+[node name="star_2_blank" type="Sprite2D" parent="CanvasLayer/UI_Management/Victory_Panel"]
+position = Vector2(321, 127)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("22_puvaq")
+
+[node name="star_2_fill" type="Sprite2D" parent="CanvasLayer/UI_Management/Victory_Panel"]
+position = Vector2(321, 127)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("23_lcaa3")
+
+[node name="star_3_blank" type="Sprite2D" parent="CanvasLayer/UI_Management/Victory_Panel"]
+position = Vector2(420, 154)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("22_puvaq")
+
+[node name="star_3_fill" type="Sprite2D" parent="CanvasLayer/UI_Management/Victory_Panel"]
+position = Vector2(420, 154)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("23_lcaa3")
+
+[node name="Victory" type="Label" parent="CanvasLayer/UI_Management/Victory_Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -114.5
+offset_right = 115.5
+offset_bottom = 113.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 40
+text = "VICTORY
+"
+horizontal_alignment = 1
+
+[node name="Label_Score" type="Label" parent="CanvasLayer/UI_Management/Victory_Panel"]
+visible = false
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -114.5
+offset_top = 113.0
+offset_right = 115.5
+offset_bottom = 226.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 40
+text = "Score:
+"
+horizontal_alignment = 1
+
+[node name="Score" type="Label" parent="CanvasLayer/UI_Management/Victory_Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -114.5
+offset_top = 178.0
+offset_right = 115.5
+offset_bottom = 291.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 40
+text = "100
+"
+horizontal_alignment = 1
+
+[node name="Store" type="Button" parent="CanvasLayer/UI_Management/Victory_Panel"]
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 0
+offset_left = 198.0
+offset_top = 297.0
+offset_right = 298.0
+offset_bottom = 347.0
+text = "GO TO STORE"
+
+[node name="Continue" type="Button" parent="CanvasLayer/UI_Management/Victory_Panel"]
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 0
+offset_left = 330.0
+offset_top = 296.0
+offset_right = 430.0
+offset_bottom = 346.0
+text = "CONTINUE"
+
+[node name="Tutorial_Input_Bloker" type="Panel" parent="CanvasLayer/UI_Management"]
+visible = false
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_right = 1300.0
+offset_bottom = 1300.0
+
+[node name="Pause" type="Button" parent="CanvasLayer/UI_Management"]
+layout_mode = 0
+offset_left = -2.0
+offset_right = 98.0
+offset_bottom = 75.0
+theme_override_font_sizes/font_size = 35
+text = "||"
+
+[node name="Paused_Panel" type="Panel" parent="CanvasLayer/UI_Management"]
+visible = false
+layout_mode = 0
+offset_left = 267.0
+offset_top = 104.0
+offset_right = 904.0
+offset_bottom = 492.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/UI_Management/Paused_Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -124.5
+offset_top = -99.0
+offset_right = 125.5
+offset_bottom = 134.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+
+[node name="Resume" type="Button" parent="CanvasLayer/UI_Management/Paused_Panel/VBoxContainer"]
+custom_minimum_size = Vector2(250, 75)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "RESUME"
+
+[node name="MainMenu" type="Button" parent="CanvasLayer/UI_Management/Paused_Panel/VBoxContainer"]
+custom_minimum_size = Vector2(250, 75)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "MAIN MENU"
+
+[node name="Quit" type="Button" parent="CanvasLayer/UI_Management/Paused_Panel/VBoxContainer"]
+custom_minimum_size = Vector2(250, 75)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "QUIT"
+
+[node name="Label" type="Label" parent="CanvasLayer/UI_Management/Paused_Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -115.0
+offset_right = 115.0
+offset_bottom = 55.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 40
+text = "PAUSED"
+horizontal_alignment = 1
+
+[node name="Start_Wave" type="Button" parent="CanvasLayer/UI_Management"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 121.0
+offset_right = 103.0
+offset_bottom = 171.0
+text = "Start_Wave"
+
+[node name="Tower_Placement" type="Node2D" parent="."]
+position = Vector2(3, 0)
+
+[node name="Area2D" parent="Tower_Placement" instance=ExtResource("23_wosyn")]
+position = Vector2(246, 379)
+
+[node name="Area2D2" parent="Tower_Placement" instance=ExtResource("23_wosyn")]
+position = Vector2(894.00006, 328)
+
+[node name="Area2D3" parent="Tower_Placement" instance=ExtResource("23_wosyn")]
+position = Vector2(246.00003, 151.00002)
+
+[node name="Area2D4" parent="Tower_Placement" instance=ExtResource("23_wosyn")]
+position = Vector2(902, 148)
+
+[node name="Area2D5" parent="Tower_Placement" instance=ExtResource("23_wosyn")]
+position = Vector2(542.00006, 258)
+
+[node name="Area2D6" parent="Tower_Placement" instance=ExtResource("23_wosyn")]
+position = Vector2(942, 554.00006)
+
+[node name="TowerArea" type="Node2D" parent="."]
+position = Vector2(-1, 3)
+
+[node name="DropArea2" type="Area2D" parent="TowerArea" groups=["drop_area", "invalid_drop_area"]]
+position = Vector2(735, 163)
+scale = Vector2(0.56, 0.56)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TowerArea/DropArea2"]
+visible = false
+modulate = Color(1, 1, 1, 0)
+polygon = PackedVector2Array(978.571, 125, 448.214, 126.786, 446.429, 441.071, -287.5, 441.071, -287.5, 335.714, -917.857, 333.929, -919.643, 542.857, 555.357, 544.643, 555.357, 442.857, 980.357, 442.857, 978.571, 737.5, 555.357, 735.714, 555.357, 651.786, -1023.21, 651.786, -1025, 228.571, -182.143, 230.357, -182.143, 333.929, 344.643, 333.929, 346.429, 125, -1023.21, 123.214, -1023.21, 19.6429, -1337.5, 17.8571, -1339.29, -87.5, -917.857, -87.5, -919.643, 17.8571, 976.786, 17.8571)
+
+[node name="WaveManager" type="Node2D" parent="."]
+script = ExtResource("8_eik88")
+path_spawners = Array[NodePath]([NodePath("../PathSpawner"), NodePath("../PathSpawner2")])
+enemy_Grease_Rat_scene = ExtResource("12_hrl0l")
+enemy_Squirrel_Fire_scene = ExtResource("13_tuai4")
+enemy_Monkey_scene = ExtResource("14_ob58h")
+enemy_Mini_Boss_scene = ExtResource("29_lcaa3")
+
+[node name="Towers" type="Node2D" parent="."]
+
+[connection signal="pressed" from="CanvasLayer/UI_Management/TextureButton" to="." method="_on_upgrade_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/UI_Management/Percepat" to="." method="_on_speed_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/UI_Management/Gameover_Panel/Restart" to="." method="_on_restart_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/UI_Management/Gameover_Panel/Continue" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="CanvasLayer/UI_Management/Ui_Upgrade/Upgrade_Button" to="." method="_on_upgrade_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/UI_Management/Ui_Upgrade/Sell_Button" to="." method="_on_sell_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/UI_Management/Ui_Upgrade/Close_Upgrade" to="." method="_on_close_upgrade_panel_pressed"]
+[connection signal="pressed" from="CanvasLayer/UI_Management/Instruction_Panel/SkipButton" to="CanvasLayer/UI_Management/Instruction_Panel" method="_on_skip_pressed"]
+[connection signal="pressed" from="CanvasLayer/UI_Management/Instruction_Panel/ContinueButton" to="CanvasLayer/UI_Management/Instruction_Panel" method="_on_continue_pressed"]
+[connection signal="pressed" from="CanvasLayer/UI_Management/Victory_Panel/Store" to="." method="_on_store_pressed"]
+[connection signal="pressed" from="CanvasLayer/UI_Management/Victory_Panel/Continue" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="CanvasLayer/UI_Management/Pause" to="." method="_on_pause_pressed"]
+[connection signal="pressed" from="CanvasLayer/UI_Management/Paused_Panel/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="CanvasLayer/UI_Management/Paused_Panel/VBoxContainer/MainMenu" to="." method="_on_main_menu_pressed"]
+[connection signal="pressed" from="CanvasLayer/UI_Management/Paused_Panel/VBoxContainer/Quit" to="." method="_on_quit_pressed"]

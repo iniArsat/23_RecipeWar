@@ -1,0 +1,6 @@
+enemy_type,health,speed,coin_reward,dps_damage,can_attack_towers,tower_damage,nerf_type,nerf_power,nerf_duration,description
+Grease_Rat,5,100,5,3.0,1,15.0,cooldown,0.2,3.0,Tikus dapur berminyak yang bergerak sangat cepat dan muncul dalam jumlah banyak untuk menembus pertahanan awal.
+Squirrel_Fire,15,90,8,5.0,1,20.0,accuracy,0.3,3.0,Tupai yang terpapar panas dan cabai. Tubuhnya sudah terbiasa dengan api, membuatnya tidak takut dengan serangan berbasis panas dan rempah pedas
+Monkey,25,85,10,6.0,1,20.0,cooldown,0.25,2.0,Monyet yang menyerang sambil melempar buah - buahan busuk, membuat pertahanan tower menjadi tidak stabil.
+Mini_Boss,75,60,20,8.0,1,15.0,cooldown,0.35,1.0,Chef spesialis bahan keras yang terkenal dengan pertahanan kokoh dan serangan berat. Ia maju perlahan, namun setiap serangannya memberi tekanan besar pada tower.
+Chef_Baslik,100,60,50,8,1,-80.0,mirror_damage,0.3,6.0,Musuh utama yang menggunakan rempah terlarang untuk mengendalikan medan pertempuran. Kehadirannya membuat pasukan musuh menjadi lebih kuat dan sulit dihentikan.

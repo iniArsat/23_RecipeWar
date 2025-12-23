@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="AccuracyNerf" load_steps=2 format=3 uid="uid://ct1g4ilg535pf"]
+
+[ext_resource type="Script" uid="uid://ctyhxthy5ffcm" path="res://script/strategy_nerf/accuracy_nerf.gd" id="1_nwda3"]
+
+[resource]
+script = ExtResource("1_nwda3")
+metadata/_custom_type_script = "uid://ctyhxthy5ffcm"

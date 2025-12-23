@@ -1,0 +1,4 @@
+trap_type,description,damage,radius,cooldown,effect_duration,effect_type
+Chili_Bomb_Trap,Meledak memberikan damage area dan efek burn kepada musuh. Cocok untuk chokepoint.,5.8,20,10.0,2.0,burn
+Net_Trap,Menjebak musuh di tempat selama beberapa saat. Tidak memberikan damage tapi sangat efektif untuk menghentikan musuh kuat.,0,20,15.0,1.5,stun
+Gelatin_Bounce_Trap,Melontarkan musuh mundur dengan efek gelatin. Berguna untuk mengatur posisi musuh.,0,20.0,1.0,0.5,knockback

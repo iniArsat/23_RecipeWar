@@ -1,0 +1,120 @@
+[gd_scene load_steps=11 format=3 uid="uid://dg51co7y2svjl"]
+
+[ext_resource type="Script" uid="uid://y1maqoqf8nlh" path="res://script/tower/tower_panel.gd" id="1_805qc"]
+[ext_resource type="PackedScene" uid="uid://c6v33erbstmg6" path="res://scene/tower_stove_cannon.tscn" id="2_0qat5"]
+[ext_resource type="Texture2D" uid="uid://dwghhwpbdd1gl" path="res://asset/Chilli_Launcher.png" id="2_bx5g7"]
+[ext_resource type="PackedScene" uid="uid://d2i5gjafy7xtx" path="res://scene/tower_chilli.tscn" id="3_qfoxm"]
+[ext_resource type="PackedScene" uid="uid://uewpaduoydcs" path="res://scene/tower_ice.tscn" id="4_000fc"]
+[ext_resource type="PackedScene" uid="uid://dth544jd51mm8" path="res://scene/tower_garlic.tscn" id="5_s46pr"]
+[ext_resource type="Texture2D" uid="uid://c85nfx42kstn4" path="res://asset/can_upgrade.png" id="7_qfoxm"]
+[ext_resource type="Texture2D" uid="uid://b4lomwvqhr4e0" path="res://asset/coin_cost.png" id="8_000fc"]
+[ext_resource type="Texture2D" uid="uid://7krk64a15ku2" path="res://asset/Locked.png" id="9_s46pr"]
+[ext_resource type="Texture2D" uid="uid://dal6xbhgbq5ja" path="res://asset/Chilli_Launcher_Hover.png" id="10_ch22a"]
+
+[node name="TowerPanel" type="Panel" groups=["tower_panel"]]
+custom_minimum_size = Vector2(78, 74)
+offset_right = 78.0
+offset_bottom = 74.0
+script = ExtResource("1_805qc")
+stove_cannon_scene = ExtResource("2_0qat5")
+chilli_launcher_scene = ExtResource("3_qfoxm")
+ice_chiller_scene = ExtResource("4_000fc")
+garlic_barrier_scene = ExtResource("5_s46pr")
+selected_tower_type = "Chilli_Launcher"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(39, 37)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_bx5g7")
+
+[node name="TidakCukup" type="Label" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 13.0
+offset_top = 20.0
+offset_right = 98.0
+offset_bottom = 69.0
+scale = Vector2(0.685, 0.685)
+text = "Koin Tidak 
+Cukup"
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 46.0
+offset_top = -1.0
+offset_right = 86.0
+offset_bottom = 74.0
+scale = Vector2(0.68, 0.68)
+text = "30
+
+"
+horizontal_alignment = 1
+
+[node name="CanUpgrade" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(13.000001, 11.999996)
+scale = Vector2(0.015, 0.015)
+texture = ExtResource("7_qfoxm")
+
+[node name="CoinCost" type="Sprite2D" parent="."]
+position = Vector2(71, 7.0000005)
+scale = Vector2(0.075, 0.075)
+texture = ExtResource("8_000fc")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_top = 61.0
+offset_right = 78.0
+offset_bottom = 74.0
+
+[node name="Label" type="Label" parent="ColorRect"]
+layout_mode = 0
+offset_left = 11.0
+offset_right = 69.0
+offset_bottom = 23.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 8
+text = "Chilli Launcher"
+
+[node name="Lock_Chilli" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(39, 35)
+scale = Vector2(0.2596154, 0.2596154)
+texture = ExtResource("9_s46pr")
+
+[node name="Popup" type="Panel" parent="."]
+visible = false
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_top = -48.0
+offset_right = 100.0
+offset_bottom = -8.0
+
+[node name="ColorRect" type="ColorRect" parent="Popup"]
+visible = false
+layout_mode = 0
+offset_left = -8.0
+offset_top = 9.0
+offset_right = 92.0
+offset_bottom = 34.0
+
+[node name="PopupLabel" type="Label" parent="Popup"]
+visible = false
+layout_mode = 0
+offset_left = -4.0
+offset_top = 10.0
+offset_right = 36.0
+offset_bottom = 33.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 10
+text = "aaaaaaaaaa"
+
+[node name="Sprite2D" type="Sprite2D" parent="Popup"]
+position = Vector2(40, -5)
+scale = Vector2(0.34, 0.34)
+texture = ExtResource("10_ch22a")
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

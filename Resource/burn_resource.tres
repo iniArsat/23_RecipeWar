@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="BurnEffect" load_steps=2 format=3 uid="uid://dh4v66i5f1ogq"]
+
+[ext_resource type="Script" uid="uid://dh87nxfl0lo8j" path="res://script/strategy_effect/burn_effect.gd" id="1_ycouo"]
+
+[resource]
+script = ExtResource("1_ycouo")
+metadata/_custom_type_script = "uid://dh87nxfl0lo8j"

@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://p313qbfjbtby"]
+
+[ext_resource type="PackedScene" uid="uid://378bayncw85c" path="res://scene/enemies/enemy_GreaseRat.tscn" id="1_pqxdi"]
+
+[sub_resource type="Curve2D" id="Curve2D_48grh"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -176, 438, 0, 0, 0, 0, 425, 441, 0, 0, 0, 0, 426, 149, 0, 0, 0, 0, 721, 154, 0, 0, 0, 0, 723, 262, 0, 0, 0, 0, 1044, 264)
+}
+point_count = 6
+
+[node name="Path2D" type="Path2D"]
+position = Vector2(7, -3)
+curve = SubResource("Curve2D_48grh")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="."]
+position = Vector2(-176, 438)
+rotates = false
+loop = false
+
+[node name="Enemy" parent="PathFollow2D" instance=ExtResource("1_pqxdi")]
