@@ -36,7 +36,10 @@ static func load_tower_data_from_csv(file_path: String) -> Dictionary:
 				"base_cost": int(line[11]),
 				"upgrade_cost_level2": int(line[12]),
 				"upgrade_cost_level3": int(line[13]),
-				"description": float(line[14])
+				"description": float(line[14]),
+				"type": String(line[15]),
+				"ability": String(line[16]),
+				"image_path": String(line[17])
 			}
 			tower_data_dict[tower_type] = data
 	

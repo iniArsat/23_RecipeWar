@@ -1,6 +1,25 @@
-[gd_scene format=3 uid="uid://df6l21g4fj21y"]
+[gd_scene load_steps=2 format=3 uid="uid://df6l21g4fj21y"]
+
+[ext_resource type="Texture2D" uid="uid://cnp5mmit83184" path="res://asset/button_encyc2.png" id="1_7wmsv"]
 
 [node name="Button_Enemies" type="Button"]
+self_modulate = Color(1, 1, 1, 0)
 custom_minimum_size = Vector2(200, 80)
 offset_right = 200.0
 offset_bottom = 50.0
+
+[node name="TextureRect" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(200, 80)
+layout_mode = 0
+offset_right = 344.0
+offset_bottom = 80.0
+texture = ExtResource("1_7wmsv")
+expand_mode = 1
+
+[node name="LabelName" type="Label" parent="."]
+layout_mode = 0
+offset_right = 111.0
+offset_bottom = 45.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+text = "aaaaaa"

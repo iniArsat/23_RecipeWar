@@ -220,10 +220,10 @@ expand_mode = 1
 position = Vector2(181, 387)
 
 [node name="Area2D3" parent="Tower_Placement" index="1"]
-position = Vector2(488.00006, 203)
+position = Vector2(510, 202.00002)
 
 [node name="Area2D4" parent="Tower_Placement" index="2"]
-position = Vector2(603, 299.00003)
+position = Vector2(603, 272)
 
 [node name="Area2D7" parent="Tower_Placement" index="3" instance=ExtResource("4_xs3d8")]
 position = Vector2(781, 383.00003)

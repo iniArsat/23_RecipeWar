@@ -12,6 +12,7 @@ signal tower_repaired()
 @export var tower_type: String = "Base_Tower"
 @export var max_health := 100.0
 @export var base_cost: int = 100
+@export var repair_speed := 15.0
 
 @export_category("Attack Properties")
 @export var bullet_speed := 250.0
@@ -131,7 +132,7 @@ func _destroy_tower():
 	tower_destroyed.emit()
 
 func _process_repair(delta: float):
-	repair_progress += 10.0 * delta
+	repair_progress += repair_speed * delta
 	current_health = min(repair_progress, max_health)
 	
 	if health_bar:

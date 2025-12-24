@@ -28,7 +28,11 @@ static func load_enemy_data_from_csv(file_path: String) -> Dictionary:
 				"nerf_type": line[7],
 				"nerf_power": float(line[8]),
 				"nerf_duration": float(line[9]),
-				"description": String(line[10])
+				"description": String(line[10]),
+				"type": String(line[11]),
+				"ability": String(line[12]),
+				"image_path": String(line[13])
+				
 			}
 			enemy_data_dict[enemy_type] = data
 	

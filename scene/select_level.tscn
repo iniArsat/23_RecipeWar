@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://dfuhc7hw0sqwj"]
+[gd_scene load_steps=35 format=3 uid="uid://dfuhc7hw0sqwj"]
 
 [ext_resource type="Script" uid="uid://dxw7sb23wfc56" path="res://script/ui/select_level.gd" id="1_62unk"]
 [ext_resource type="Texture2D" uid="uid://d154gfxyg3qxa" path="res://asset/stage.jpeg" id="1_hpupe"]
@@ -21,6 +21,10 @@
 [ext_resource type="PackedScene" uid="uid://cdlf5eqeffb4d" path="res://scene/button_trap.tscn" id="19_ojvuj"]
 [ext_resource type="Texture2D" uid="uid://bwufrpco2i7jn" path="res://asset/button_encyc.png" id="20_eijlc"]
 [ext_resource type="Texture2D" uid="uid://cfrg5ispov634" path="res://asset/bg_panel_encyc.png" id="20_ojvuj"]
+[ext_resource type="Texture2D" uid="uid://dvcfiw0vujs2i" path="res://asset/bg_encyc2.png" id="21_brpei"]
+[ext_resource type="Texture2D" uid="uid://crog7m43vcqkf" path="res://asset/bg_panel_desc.png" id="22_gpwrl"]
+[ext_resource type="Texture2D" uid="uid://ckjqo2rhj1wpd" path="res://asset/bagian_encyc.png" id="24_48fqh"]
+[ext_resource type="Texture2D" uid="uid://bws4wkddkjgs6" path="res://asset/Grease_Rat.png" id="25_sqocu"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vf7qe"]
 bg_color = Color(0.211765, 0.211765, 0.211765, 1)
@@ -973,11 +977,20 @@ offset_bottom = 723.3334
 texture = ExtResource("20_ojvuj")
 expand_mode = 1
 
+[node name="TextureRect2" type="TextureRect" parent="Panel_Encyclopedia/Panel_enemies"]
+layout_mode = 0
+offset_left = 27.777779
+offset_top = 71.111115
+offset_right = 402.22223
+offset_bottom = 684.44446
+texture = ExtResource("21_brpei")
+expand_mode = 1
+
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel_Encyclopedia/Panel_enemies"]
 layout_mode = 0
-offset_left = 31.111113
-offset_top = 80.0
-offset_right = 431.1111
+offset_left = 43.333344
+offset_top = 101.11111
+offset_right = 386.6667
 offset_bottom = 800.0
 theme_override_constants/separation = 25
 
@@ -1011,11 +1024,20 @@ offset_bottom = 723.3334
 texture = ExtResource("20_ojvuj")
 expand_mode = 1
 
+[node name="TextureRect2" type="TextureRect" parent="Panel_Encyclopedia/Panel_tower"]
+layout_mode = 0
+offset_left = 27.777775
+offset_top = 71.111115
+offset_right = 402.22223
+offset_bottom = 684.44446
+texture = ExtResource("21_brpei")
+expand_mode = 1
+
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel_Encyclopedia/Panel_tower"]
 layout_mode = 0
-offset_left = 31.111113
-offset_top = 80.0
-offset_right = 431.1111
+offset_left = 43.333344
+offset_top = 101.111115
+offset_right = 386.6667
 offset_bottom = 800.0
 theme_override_constants/separation = 25
 
@@ -1029,6 +1051,7 @@ offset_bottom = 681.1111
 color = Color(0.15487596, 0.154876, 0.15487596, 1)
 
 [node name="Panel_trap" type="Panel" parent="Panel_Encyclopedia"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -1071,9 +1094,9 @@ layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.001
 anchor_bottom = 0.056
-offset_left = 104.0
+offset_left = 299.0
 offset_top = 9.0
-offset_right = 103.71997
+offset_right = 298.71997
 offset_bottom = 38.68
 theme_override_constants/separation = 25
 
@@ -1120,6 +1143,7 @@ theme_override_font_sizes/font_size = 32
 text = "Tower"
 
 [node name="Button_Trap" type="Button" parent="Panel_Encyclopedia/HBoxContainer"]
+visible = false
 custom_minimum_size = Vector2(350, 70)
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_20ck4")
@@ -1149,25 +1173,100 @@ offset_bottom = 665.0
 text = "CLOSE"
 
 [node name="Detail_Panel" type="Panel" parent="Panel_Encyclopedia"]
+self_modulate = Color(1, 1, 1, 0)
 layout_mode = 0
-offset_left = 564.0
-offset_top = 154.0
-offset_right = 1164.0
-offset_bottom = 554.0
+offset_left = 447.0
+offset_top = 78.0
+offset_right = 1216.0
+offset_bottom = 657.0
+
+[node name="TextureRect" type="TextureRect" parent="Panel_Encyclopedia/Detail_Panel"]
+layout_mode = 0
+offset_top = 15.0
+offset_right = 776.0
+offset_bottom = 565.0
+texture = ExtResource("22_gpwrl")
+expand_mode = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="Panel_Encyclopedia/Detail_Panel/TextureRect"]
+position = Vector2(468, 150.99998)
+scale = Vector2(0.45, 0.45)
+texture = ExtResource("24_48fqh")
 
 [node name="tittle" type="Label" parent="Panel_Encyclopedia/Detail_Panel"]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+offset_left = 220.0
+offset_top = 74.0
+offset_right = 327.0
+offset_bottom = 97.0
+text = "Stove Cannon"
 
 [node name="description" type="RichTextLabel" parent="Panel_Encyclopedia/Detail_Panel"]
-custom_minimum_size = Vector2(600, 0)
+custom_minimum_size = Vector2(400, 0)
 layout_mode = 0
-offset_top = 43.0
-offset_right = 40.0
-offset_bottom = 66.0
+offset_left = 311.0
+offset_top = 154.0
+offset_right = 711.0
+offset_bottom = 246.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris "
 fit_content = true
 scroll_active = false
+
+[node name="type" type="Label" parent="Panel_Encyclopedia/Detail_Panel"]
+custom_minimum_size = Vector2(600, 0)
+layout_mode = 0
+offset_left = 313.0
+offset_top = 105.0
+offset_right = 913.0
+offset_bottom = 128.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "aaaaaa"
+
+[node name="ability" type="Label" parent="Panel_Encyclopedia/Detail_Panel"]
+custom_minimum_size = Vector2(600, 0)
+layout_mode = 0
+offset_left = 313.0
+offset_top = 131.0
+offset_right = 913.0
+offset_bottom = 154.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "bbbbbbb"
+
+[node name="tipe" type="Label" parent="Panel_Encyclopedia/Detail_Panel"]
+custom_minimum_size = Vector2(600, 0)
+layout_mode = 0
+offset_left = 211.0
+offset_top = 104.0
+offset_right = 811.0
+offset_bottom = 127.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Type              : "
+
+[node name="abl" type="Label" parent="Panel_Encyclopedia/Detail_Panel"]
+custom_minimum_size = Vector2(600, 0)
+layout_mode = 0
+offset_left = 211.0
+offset_top = 130.0
+offset_right = 811.0
+offset_bottom = 153.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Ability           :"
+
+[node name="desc3" type="Label" parent="Panel_Encyclopedia/Detail_Panel"]
+custom_minimum_size = Vector2(600, 0)
+layout_mode = 0
+offset_left = 211.0
+offset_top = 152.0
+offset_right = 811.0
+offset_bottom = 175.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Description :"
+
+[node name="icon" type="Sprite2D" parent="Panel_Encyclopedia/Detail_Panel"]
+position = Vector2(111, 167)
+scale = Vector2(1.48, 1.48)
+texture = ExtResource("25_sqocu")
 
 [node name="Button_Reset" type="Button" parent="."]
 layout_mode = 0

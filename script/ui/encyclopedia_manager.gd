@@ -20,9 +20,11 @@ extends Panel
 
 # Panel untuk menampilkan detail
 @onready var detail_panel: Panel = $Detail_Panel
+@onready var detail_image: Sprite2D = $Detail_Panel/icon
 @onready var detail_title: Label = $Detail_Panel/tittle
+@onready var detail_type: Label = $Detail_Panel/type
+@onready var detail_ability: Label = $Detail_Panel/ability
 @onready var detail_description: RichTextLabel = $Detail_Panel/description
-
 
 # Data dari CSV
 var enemies_data: Array = []
@@ -74,14 +76,14 @@ func _load_csv(file_path: String) -> Array:
 	var headers_line = file.get_csv_line()
 	var headers = []
 	for header in headers_line:
-		headers.append(header.strip_edges())  # Ganti strip() dengan strip_edges()
+		headers.append(header.strip_edges())
 	
 	while not file.eof_reached():
 		var line = file.get_csv_line()
 		if line.size() >= headers.size():
 			var entry = {}
 			for i in range(headers.size()):
-				var value = line[i].strip_edges() if i < line.size() else ""  # Ganti di sini juga
+				var value = line[i].strip_edges() if i < line.size() else ""
 				entry[headers[i]] = value
 			data.append(entry)
 	
@@ -140,6 +142,10 @@ func _setup_enemy_button(button: Button, enemy_data: Dictionary):
 	# Gunakan enemy_type sebagai nama (format: Grease_Rat -> Grease Rat)
 	var enemy_name = enemy_data.get("enemy_type", "").replace("_", " ")
 	button.text = enemy_name
+	for child in button.get_children():
+		if child is Label:
+			child.text = enemy_name
+			break
 	
 	# Simpan data lengkap sebagai metadata
 	button.set_meta("enemy_data", enemy_data)
@@ -151,6 +157,10 @@ func _setup_tower_button(button: Button, tower_data: Dictionary):
 	# Gunakan tower_type sebagai nama
 	var tower_name = tower_data.get("tower_type", "").replace("_", " ")
 	button.text = tower_name
+	for child in button.get_children():
+		if child is Label:
+			child.text = tower_name
+			break
 	
 	# Simpan data lengkap sebagai metadata
 	button.set_meta("tower_data", tower_data)
@@ -200,34 +210,93 @@ func _on_trap_button_pressed(button: Button):
 func _show_enemy_detail(enemy_data: Dictionary):
 	detail_panel.visible = true
 	
+	# Title
 	var enemy_name = enemy_data.get("enemy_type", "").replace("_", " ")
 	detail_title.text = enemy_name
 	
+	# Type
+	var enemy_type = enemy_data.get("type", "Unknown Type")
+	detail_type.text = "Type: " + enemy_type
+	
+	# Ability
+	var enemy_ability = enemy_data.get("ability", "No ability")
+	detail_ability.text = "Ability: " + enemy_ability
+	
+	# Image - ambil dari field "image_path" di CSV
+	var image_path = enemy_data.get("image_path", "")
+	_load_image_to_sprite(image_path)
+	
+	# Description
 	var description = enemy_data.get("description", "No description available.")
 	detail_description.text = description
-	detail_description.scroll_active = false 
+	detail_description.scroll_active = false
 
 func _show_tower_detail(tower_data: Dictionary):
 	detail_panel.visible = true
 	
-	# Title dari tower_type
+	# Title
 	var tower_name = tower_data.get("tower_type", "").replace("_", " ")
 	detail_title.text = tower_name
 	
-	# Description dari CSV
+	# Type
+	var tower_type = tower_data.get("type", "Unknown Type")
+	detail_type.text = "Type: " + tower_type
+	
+	# Ability
+	var tower_ability = tower_data.get("ability", "No ability")
+	detail_ability.text = "Ability: " + tower_ability
+	
+	# Image - ambil dari field "image_path" di CSV
+	var image_path = tower_data.get("image_path", "")
+	_load_image_to_sprite(image_path)
+	
+	# Description
 	var description = tower_data.get("description", "No description available.")
 	detail_description.text = description
 
 func _show_trap_detail(trap_data: Dictionary):
 	detail_panel.visible = true
 	
-	# Title dari trap_type
+	# Title
 	var trap_name = trap_data.get("trap_type", "").replace("_", " ")
 	detail_title.text = trap_name
 	
-	# Description dari CSV
+	# Type
+	var trap_type = trap_data.get("type", "Unknown Type")
+	detail_type.text = "Type: " + trap_type
+	
+	# Ability
+	var trap_ability = trap_data.get("ability", "No ability")
+	detail_ability.text = "Ability: " + trap_ability
+	
+	# Image - ambil dari field "image_path" di CSV
+	var image_path = trap_data.get("image_path", "")
+	_load_image_to_sprite(image_path)
+	
+	# Description
 	var description = trap_data.get("description", "No description available.")
 	detail_description.text = description
+
+func _load_image_to_sprite(image_path: String):
+	# Reset texture terlebih dahulu
+	detail_image.texture = null
+	
+	# Jika image_path kosong, gunakan placeholder
+	if image_path == "":
+		# Buat placeholder texture atau biarkan kosong
+		print("⚠️ No image path specified")
+		return
+	
+	# Coba load texture dari path
+	if ResourceLoader.exists(image_path):
+		var texture = load(image_path)
+		if texture:
+			detail_image.texture = texture
+			print("✅ Loaded image: ", image_path)
+		else:
+			print("❌ Failed to load texture: ", image_path)
+	else:
+		print("❌ Image file not found: ", image_path)
 
 func _reset_button_highlights(container: Container):
 	for child in container.get_children():
@@ -238,7 +307,6 @@ func _auto_select_first_enemy():
 	if enemies_container.get_child_count() > 0:
 		var first_button = enemies_container.get_child(0)
 		if first_button is Button:
-			# Tunggu frame berikutnya lalu trigger pressed
 			await get_tree().process_frame
 			first_button.emit_signal("pressed")
 
@@ -247,15 +315,12 @@ func _on_button_enemies_pressed() -> void:
 	panel_tower.visible = false
 	panel_trap.visible = false
 	
-	# Generate buttons jika belum ada
 	if enemies_container.get_child_count() == 0:
 		generate_enemy_buttons()
 	
-	# Auto-select button pertama
 	if enemies_container.get_child_count() > 0:
 		var first_button = enemies_container.get_child(0)
 		if first_button is Button:
-			# Trigger setelah delay kecil
 			await get_tree().create_timer(0.1).timeout
 			first_button.emit_signal("pressed")
 
@@ -264,15 +329,12 @@ func _on_button_tower_pressed() -> void:
 	panel_tower.visible = true
 	panel_trap.visible = false
 	
-	# Generate buttons jika belum ada
 	if tower_container.get_child_count() == 0:
 		generate_tower_buttons()
 	
-	# Auto-select button pertama
 	if tower_container.get_child_count() > 0:
 		var first_button = tower_container.get_child(0)
 		if first_button is Button:
-			# Trigger setelah delay kecil
 			await get_tree().create_timer(0.1).timeout
 			first_button.emit_signal("pressed")
 
@@ -281,17 +343,23 @@ func _on_button_trap_pressed() -> void:
 	panel_tower.visible = false
 	panel_trap.visible = true
 	
-	# Generate buttons jika belum ada
 	if trap_container.get_child_count() == 0:
 		generate_trap_buttons()
 	
-	# Auto-select button pertama
 	if trap_container.get_child_count() > 0:
 		var first_button = trap_container.get_child(0)
 		if first_button is Button:
-			# Trigger setelah delay kecil
 			await get_tree().create_timer(0.1).timeout
 			first_button.emit_signal("pressed")
 
 func _on_button_close_pressed() -> void:
 	panel_encyclopedia.visible = false
+
+#"res://asset/Grease_Rat.png"
+#"res://asset/Sequirel_Fire.png"
+#"res://asset/Monkey.png"
+#"res://asset/Ice_Chiller.png"
+#"res://asset/Stove_Cannon.png"
+#"res://asset/Chilli_Launcher.png"
+#"res://asset/Pepper_Grinder.png"
+#"res://asset/Garlic_Barrier.png"
